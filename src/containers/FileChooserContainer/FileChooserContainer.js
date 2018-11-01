@@ -3,6 +3,12 @@ import { FileChooser } from '../../components';
 
 import { actions } from '../../actions';
 
+const {
+  createChooseFilesAction,
+  createEnterStringAction,
+  createStartHashAction
+} = actions;
+
 const mapStateToProps = (state) => ({
   ...state
 });
@@ -16,21 +22,33 @@ const getFilesFromItems = (items) => {
   );
 };
 
+const getFilesFromEvent = (event) => {
+  const transfer = event.dataTransfer;
+  const items = transfer && transfer.items;
+  const files = (items && getFilesFromItems(items)) ||
+    (transfer && transfer.files) ||
+      (event.target && event.target.files);
+
+  return files;
+};
+
 const mapDispatchToProps = (dispatch, ownProps) => ({
   hashFiles: (event) => {
-    return dispatch(actions.createStartHashAction());
+    return dispatch(createStartHashAction());
   },
   choose:    (event) => {
-
-    const transfer = event.dataTransfer;
-    const target = event.target;
-    const items = transfer && transfer.items;
-    const files = (items && getFilesFromItems(items))
-      || (transfer && transfer.files)
-      || (target && target.files);
-
-    return dispatch(actions.createChooseFilesActions(files));
-
+    return dispatch(
+      createChooseFilesAction(
+        getFilesFromEvent(event)
+      )
+    );
+  },
+  enter:      (event) => {
+    return dispatch(
+      createEnterStringAction(
+        event.target.value
+      )
+    );
   }
 });
 

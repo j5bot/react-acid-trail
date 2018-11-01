@@ -4,10 +4,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export const FileChooser = (props) => {
 
-  const { choose, hashFiles } = props;
+  const { choose } = props;
 
-  return ([
-    <div id="dropZone" key="dropZone">
+  return (
+    <div id="dropZone">
       <div className="pointer">
         <FontAwesomeIcon icon="hand-pointer"/>
       </div>
@@ -26,13 +26,7 @@ export const FileChooser = (props) => {
           </label>
         </Button>
       </p>
-    </div>,
-    <div key="hashButton">
-      <Button onClick={ hashFiles }>
-        Hash Files
-      </Button>
-    </div>
-  ]);
+    </div>);
 
 };
 

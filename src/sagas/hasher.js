@@ -1,31 +1,50 @@
 import { takeEvery } from 'redux-saga/effects';
 
-import WorkerFileHasher from '../modules/WorkerFileHasher';
+import WorkerHasher from '../modules/WorkerHasher';
 import { types, actions } from '../actions';
 
+const {
+  START_HASH
+} = types;
+
+const {
+  createFinishHashAction
+} = actions;
+
 const getFiles = state => state.hasher.files;
+const getStrings = state => state.hasher.strings;
 
-export function* hashFiles (dispatch, getState, action) {
+export function* hashFilesAndStrings (action, dispatch, getState) {
   const files = getFiles(getState());
+  const strings = getStrings(getState());
 
-  const hasher = new WorkerFileHasher({
-    files
+  const hasher = new WorkerHasher({
+    files,
+    strings
   });
 
-  yield hasher.fileWorker.forEach(
-    (fileWorker) => dispatch(
-      actions.createFinishHashAction(
-        fileWorker.hash()
-      )
-    )
+  yield hasher.workers.forEach(
+    (worker) => {
+      const promise = worker.hash();
+
+      promise.then(
+        (data) => {
+          dispatch(createFinishHashAction(data));
+        }
+      );
+    }
   );
+
 }
 
 export function* watchStartHash (dispatch, getState) {
-  yield takeEvery(types.START_HASH, hashFiles.bind(dispatch, getState));
+  yield takeEvery(
+    START_HASH,
+    (action) => hashFilesAndStrings(action, dispatch, getState)
+  );
 }
 
 export default {
-  hashFiles,
+  hashFilesAndStrings,
   watchStartHash
 };

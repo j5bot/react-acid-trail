@@ -1,16 +1,26 @@
 import { types } from '../actions';
 
 const defaultState = {
-  files: []
+  files:   [],
+  strings: [],
+  hashes:  []
 };
 
+const {
+  CHOOSE_FILES,
+  ENTER_STRING,
+  FINISH_HASH
+} = types;
+
 export const hasher = (state = defaultState, action) => {
-  let newState = state;
+  let newState = state,
+      name;
 
   const { type, payload } = action;
 
   switch (type) {
-  case types.CHOOSE_FILES:
+
+  case CHOOSE_FILES:
 
     newState = {
       ...newState,
@@ -18,6 +28,38 @@ export const hasher = (state = defaultState, action) => {
     };
 
     break;
+
+  case ENTER_STRING:
+
+    newState = {
+      ...newState,
+      strings: [
+        payload.string
+      ]
+    };
+
+    break;
+
+  case FINISH_HASH:
+
+    name = (payload.file && payload.file.name) ||
+      (payload.string.length <= 15 ?
+        payload.string :
+        `${payload.string.substr(0, 7)}...${payload.string.substr(-5)}`);
+
+    newState = {
+      ...newState,
+      hashes: [
+        ...newState.hashes,
+        {
+          name,
+          ...payload
+        }
+      ]
+    };
+
+    break;
+
   default:
     break;
   }
