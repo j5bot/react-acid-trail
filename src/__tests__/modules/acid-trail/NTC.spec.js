@@ -1,9 +1,13 @@
 import NTC, {
+  addColor,
+  addColors,
   cleanColor,
   colormatch,
+  dumpShadesAndNames,
   hsl,
   init,
   match,
+  matchShade,
   rgb,
   shadergb,
   sort
@@ -497,6 +501,23 @@ describe('NTC', () => {
 
   describe('match', () => {
 
+    const matchExact = (color, matched) => {
+      if (color === cleanColor(matched.color)) {
+        test('match is exact', () => {
+          expect(matched.exact).toEqual(true);
+        });
+      } else {
+        describe('not an exact match', () => {
+          test('not exact', () => {
+            expect(matched.exact).toEqual(false);
+          });
+          test('difference > 0', () => {
+            expect(matched.diff).toBeGreaterThan(0);
+          });
+        });
+      }
+    };
+
     describe('invalid match', () => {
 
       const invalid = match('Bob');
@@ -536,17 +557,7 @@ describe('NTC', () => {
             expect(matched.shadeName.indexOf('Invalid')).toEqual(-1);
           });
 
-          describe('exactness', () => {
-            if (color === cleanColor(matched.color)) {
-              test('match is exact', () => {
-                expect(matched.exact).toEqual(true);
-              });
-            } else {
-              test('not an exact match', () => {
-                expect(matched.exact).toEqual(false);
-              });
-            }
-          });
+          describe('exactness', () => matchExact(color, matched));
 
         });
       };
@@ -561,6 +572,155 @@ describe('NTC', () => {
         (color) => testMatched(color, match(color))
       );
 
+    });
+
+  });
+
+  describe('matchShade', () => {
+
+    const colors = [
+      'FF3311',
+      '004433',
+      'F0F0F0',
+      'FFFFEE',
+      '113322',
+      '111111',
+      'FF00FF'
+    ];
+
+    const expected = [
+      'Red',
+      'Green',
+      'White',
+      'Yellow',
+      'Green',
+      'Black',
+      'Violet'
+    ];
+
+    const testMatchShade = (color, expectedShadeName) => {
+
+      const shade = matchShade(color);
+
+      test(`shade name for ${color} matches ${expectedShadeName}
+        difference of ${shade.diff}`, () => {
+        expect(shade.shadeName).toEqual(expectedShadeName);
+      });
+
+    };
+
+    colors.forEach(
+      (color, index) => testMatchShade(color, expected[index])
+    );
+
+  });
+
+  describe('adding colors', () => {
+
+    const newColor = {
+      hex:  '33FFBB',
+      name: 'Garbage In'
+    };
+
+    const expectedColor = [
+      '33FFBB',
+      'Garbage In',
+      'Green',
+      51,
+      255,
+      187,
+      113.33333333333333,
+      255,
+      153
+    ];
+
+    let colorList = NTC.names.slice(0, 10);
+
+    describe('addColor', () => {
+
+      const color = addColor(newColor, colorList);
+
+      test('new color has same color', () => {
+        expect(color[0]).toEqual(newColor.hex);
+        expect(color[0]).toEqual(expectedColor[0]);
+      });
+      test('new color has same name', () => {
+        expect(color[1]).toEqual(newColor.name);
+        expect(color[1]).toEqual(expectedColor[1]);
+      });
+
+      test('new color has expected shade', () => {
+        expect(color[2]).toEqual(expectedColor[2]);
+      });
+
+      test('new color has expected RGB', () => {
+        expect(color[3]).toEqual(expectedColor[3]);
+        expect(color[4]).toEqual(expectedColor[4]);
+        expect(color[5]).toEqual(expectedColor[5]);
+      });
+
+      test('new color has expected HSL', () => {
+        expect(color[6]).toEqual(expectedColor[6]);
+        expect(color[7]).toEqual(expectedColor[7]);
+        expect(color[8]).toEqual(expectedColor[8]);
+      });
+
+    });
+
+    describe('addColors', () => {
+
+      colorList = NTC.names.slice(0, 10);
+
+      const addedColors = addColors([newColor], colorList);
+      const { colors, namedColors } = addedColors;
+
+      test('new color in new color list', () => {
+        expect(colors[0]).toEqual(expectedColor);
+      });
+
+      test('new color added to named colors', () => {
+        expect(
+          namedColors.filter(
+            (named) => named[0] === newColor.hex
+          )
+        ).toHaveLength(1);
+      });
+
+    });
+
+    describe('addColors to main', () => {
+
+      const addedColors = addColors([newColor]);
+      const { namedColors } = addedColors;
+
+      test('new color added to named colors', () => {
+        expect(
+          namedColors.filter(
+            (named) => named[0] === newColor.hex
+          )
+        ).toHaveLength(1);
+      });
+
+    });
+
+  });
+
+  describe('dumpShadesAndNames', () => {
+
+    const dump = dumpShadesAndNames();
+    const parsed = JSON.parse(dump);
+
+    test('dump is string', () => {
+      expect(typeof dump).toEqual('string');
+    });
+    test('dump is not empty', () => {
+      expect(dump.length).toBeGreaterThan(0);
+    });
+    test('parsed has shades', () => {
+      expect(parsed.shades).toBeDefined();
+    });
+    test('parsed has names', () => {
+      expect(parsed.names).toBeDefined();
     });
 
   });

@@ -230,7 +230,7 @@ const getColorDiff = (color, name) => {
   const getPartDiff = createGetPartDiff(color, name);
 
   // red + green + blue or hue + sat + light
-  return getPartDiff(1) + getPartDiff(2) + getPartDiff(3);
+  return getPartDiff(0) + getPartDiff(1) + getPartDiff(2);
 };
 
 /**
@@ -279,7 +279,6 @@ export const match = (color, namedColors) => {
         diff = 0;
         return false;
       }
-      debugger;
       // rgb + hsl difference score
       newDiff = getColorDiff(
         rgb(color),
@@ -313,7 +312,12 @@ export const matchShade = (color) => {
     init(
       shades.map(
         // shade's color and shade are the same, yo.
-        (shade) => shade.push(shade[1]) && shade
+        (shade) => {
+          const newShade = shade.slice();
+
+          newShade.push(shade[1]);
+          return newShade;
+        }
       )
     )
   );
@@ -328,10 +332,10 @@ export const matchShade = (color) => {
  *                             to the list of named colors.
  * @param {Array} [namedColors] The list of named colors to modify.
  *                              Defaults to the main named color list.
- * @returns {Array}             The updated list of named colors.
+ * @returns {Array}             An array representing the named color added.
  */
 export const addColor = (color, namedColors) => {
-  return addColors([color], namedColors)[0];
+  return addColors([color], namedColors).colors[0];
 };
 
 /**
@@ -340,10 +344,11 @@ export const addColor = (color, namedColors) => {
  * @param {Object} color        An object with `hex` and `name` properties.
  * @param {Array} [namedColors] List of named colors to add the new color to.
  *                              Defaults to the main named color list.
- * @returns {Array}             An array representation of a named color.
+ * @returns {Object}            An object containing the new color list and the
+ *                              named color that was added.
  */
-export const addNewColor = (color, namedColors) => {
-  namedColors = namedColors || names;
+const addNewColor = (color, namedColors) => {
+  namedColors = namedColors;
 
   const { hex, name } = color;
   const shadeColor = matchShade(hex);
@@ -380,7 +385,7 @@ export const addColors = (colors, namedColors) => {
     (color) => addNewColor(color, namedColors)
   );
 
-  namedColors = namedColors.sort(namedColors);
+  namedColors = sort(namedColors);
 
   if (isMain) {
     names = namedColors;

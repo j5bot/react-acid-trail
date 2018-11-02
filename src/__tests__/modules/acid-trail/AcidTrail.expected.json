@@ -1,0 +1,677 @@
+{
+  "sha1": {
+    "hash": "6dcd4ce23d88e2ee9568ba546c007c63d9131c1b",
+    "pad": "6dcd4ce23d88e2ee9568ba546c007c63d9131c1b88",
+    "colors": [
+      "6dcd4c",
+      "e23d88",
+      "e2ee95",
+      "68ba54",
+      "6c007c",
+      "63d913",
+      "1c1b88"
+    ],
+    "trail": {
+      "colors": [
+        "#6dcd4c",
+        "#e23d88",
+        "#e2ee95",
+        "#68ba54",
+        "#6c007c",
+        "#63d913",
+        "#1c1b88"
+      ],
+      "hashColors": [
+        {
+          "hex": "#6dcd4c",
+          "match": {
+            "color": "#7FC15C",
+            "diff": 2464.63238830153,
+            "exact": false,
+            "name": "Mantis",
+            "shade": "#008000",
+            "shadeName": "Green"
+          }
+        },
+        {
+          "hex": "#e23d88",
+          "match": {
+            "color": "#DA3287",
+            "diff": 647.6005520072032,
+            "exact": false,
+            "name": "Deep Cerise",
+            "shade": "#EE82EE",
+            "shadeName": "Violet"
+          }
+        },
+        {
+          "hex": "#e2ee95",
+          "match": {
+            "color": "#D1EF9F",
+            "diff": 670.0998747242509,
+            "exact": false,
+            "name": "Reef",
+            "shade": "#008000",
+            "shadeName": "Green"
+          }
+        },
+        {
+          "hex": "#68ba54",
+          "match": {
+            "color": "#66B348",
+            "diff": 403.387430454145,
+            "exact": false,
+            "name": "Apple",
+            "shade": "#008000",
+            "shadeName": "Green"
+          }
+        },
+        {
+          "hex": "#6c007c",
+          "match": {
+            "color": "#800080",
+            "diff": 484.14568158168544,
+            "exact": false,
+            "name": "Purple",
+            "shade": "#EE82EE",
+            "shadeName": "Violet"
+          }
+        },
+        {
+          "hex": "#63d913",
+          "match": {
+            "color": "#4CBB17",
+            "diff": 2244.5764050842317,
+            "exact": false,
+            "name": "Kelly Green",
+            "shade": "#008000",
+            "shadeName": "Green"
+          }
+        },
+        {
+          "hex": "#1c1b88",
+          "match": {
+            "color": "#191970",
+            "diff": 1074.7828906510972,
+            "exact": false,
+            "name": "Midnight Blue",
+            "shade": "#0000FF",
+            "shadeName": "Blue"
+          }
+        }
+      ],
+      "matchcolors": [
+        "#7FC15C",
+        "#DA3287",
+        "#D1EF9F",
+        "#66B348",
+        "#800080",
+        "#4CBB17",
+        "#191970"
+      ],
+      "matchnames": [
+        "Mantis",
+        "Deep Cerise",
+        "Reef",
+        "Apple",
+        "Purple",
+        "Kelly Green",
+        "Midnight Blue"
+      ]
+    },
+    "makeSet": [
+      {
+        "color": "#7FC15C"
+      },
+      {
+        "color": "#DA3287"
+      },
+      {
+        "color": "#D1EF9F"
+      }
+    ]
+  },
+  "sha256": {
+    "hash": "559aead08264d5795d3909718cdd05abd49572e84fe55590eef31a88a08fdffd",
+    "pad": "559aead08264d5795d3909718cdd05abd49572e84fe55590eef31a88a08fdffd88",
+    "colors": [
+      "559aea",
+      "d08264",
+      "d5795d",
+      "390971",
+      "8cdd05",
+      "abd495",
+      "72e84f",
+      "e55590",
+      "eef31a",
+      "88a08f",
+      "dffd88"
+    ],
+    "trail": {
+      "colors": [
+        "#559aea",
+        "#d08264",
+        "#d5795d",
+        "#390971",
+        "#8cdd05",
+        "#abd495",
+        "#72e84f",
+        "#e55590",
+        "#eef31a",
+        "#88a08f",
+        "#dffd88"
+      ],
+      "hashColors": [
+        {
+          "hex": "#559aea",
+          "match": {
+            "color": "#6495ED",
+            "diff": 479.266132606336,
+            "exact": false,
+            "name": "Cornflower Blue",
+            "shade": "#0000FF",
+            "shadeName": "Blue"
+          }
+        },
+        {
+          "hex": "#d08264",
+          "match": {
+            "color": "#D08363",
+            "diff": 4.085241911045725,
+            "exact": false,
+            "name": "Burning Sand",
+            "shade": "#FFA500",
+            "shadeName": "Orange"
+          }
+        },
+        {
+          "hex": "#d5795d",
+          "match": {
+            "color": "#CE7259",
+            "diff": 428.2367452434969,
+            "exact": false,
+            "name": "Japonica",
+            "shade": "#FFA500",
+            "shadeName": "Orange"
+          }
+        },
+        {
+          "hex": "#390971",
+          "match": {
+            "color": "#32127A",
+            "diff": 2020.7377758607333,
+            "exact": false,
+            "name": "Persian Indigo",
+            "shade": "#EE82EE",
+            "shadeName": "Violet"
+          }
+        },
+        {
+          "hex": "#8cdd05",
+          "match": {
+            "color": "#7CFC00",
+            "diff": 1898.4610813836562,
+            "exact": false,
+            "name": "Lawn Green",
+            "shade": "#008000",
+            "shadeName": "Green"
+          }
+        },
+        {
+          "hex": "#abd495",
+          "match": {
+            "color": "#9FD385",
+            "diff": 834.4334671391307,
+            "exact": false,
+            "name": "Gossip",
+            "shade": "#008000",
+            "shadeName": "Green"
+          }
+        },
+        {
+          "hex": "#72e84f",
+          "match": {
+            "color": "#77DD77",
+            "diff": 6063.0568585217725,
+            "exact": false,
+            "name": "Pastel Green",
+            "shade": "#008000",
+            "shadeName": "Green"
+          }
+        },
+        {
+          "hex": "#e55590",
+          "match": {
+            "color": "#E75480",
+            "diff": 353.23531743213766,
+            "exact": false,
+            "name": "Dark Pink",
+            "shade": "#FF0000",
+            "shadeName": "Red"
+          }
+        },
+        {
+          "hex": "#eef31a",
+          "match": {
+            "color": "#FDE910",
+            "diff": 1362.3380751663728,
+            "exact": false,
+            "name": "Lemon",
+            "shade": "#FFFF00",
+            "shadeName": "Yellow"
+          }
+        },
+        {
+          "hex": "#88a08f",
+          "match": {
+            "color": "#8BA58F",
+            "diff": 160.3412087088866,
+            "exact": false,
+            "name": "Envy",
+            "shade": "#008000",
+            "shadeName": "Green"
+          }
+        },
+        {
+          "hex": "#dffd88",
+          "match": {
+            "color": "#FFFF99",
+            "diff": 1877.1296580698117,
+            "exact": false,
+            "name": "Canary",
+            "shade": "#FFFF00",
+            "shadeName": "Yellow"
+          }
+        }
+      ],
+      "matchcolors": [
+        "#6495ED",
+        "#D08363",
+        "#CE7259",
+        "#32127A",
+        "#7CFC00",
+        "#9FD385",
+        "#77DD77",
+        "#E75480",
+        "#FDE910",
+        "#8BA58F",
+        "#FFFF99"
+      ],
+      "matchnames": [
+        "Cornflower Blue",
+        "Burning Sand",
+        "Japonica",
+        "Persian Indigo",
+        "Lawn Green",
+        "Gossip",
+        "Pastel Green",
+        "Dark Pink",
+        "Lemon",
+        "Envy",
+        "Canary"
+      ]
+    }
+  },
+  "sha384": {
+    "hash": "ad14aaf25020bef2fd4e3eb5ec0c50272cdfd66074b0ed037c9a11254321aac0729985374beeaa5b80a504d048be1864",
+    "pad": "ad14aaf25020bef2fd4e3eb5ec0c50272cdfd66074b0ed037c9a11254321aac0729985374beeaa5b80a504d048be1864",
+    "colors": [
+      "ad14aa",
+      "f25020",
+      "bef2fd",
+      "4e3eb5",
+      "ec0c50",
+      "272cdf",
+      "d66074",
+      "b0ed03",
+      "7c9a11",
+      "254321",
+      "aac072",
+      "998537",
+      "4beeaa",
+      "5b80a5",
+      "04d048",
+      "be1864"
+    ],
+    "trail": {
+      "colors": [
+        "#ad14aa",
+        "#f25020",
+        "#bef2fd",
+        "#4e3eb5",
+        "#ec0c50",
+        "#272cdf",
+        "#d66074",
+        "#b0ed03",
+        "#7c9a11",
+        "#254321",
+        "#aac072",
+        "#998537",
+        "#4beeaa",
+        "#5b80a5",
+        "#04d048",
+        "#be1864"
+      ],
+      "hashColors": [
+        {
+          "hex": "#ad14aa",
+          "match": {
+            "color": "#C71585",
+            "diff": 2890.7600000188513,
+            "exact": false,
+            "name": "Medium Violet Red",
+            "shade": "#FF0000",
+            "shadeName": "Red"
+          }
+        },
+        {
+          "hex": "#f25020",
+          "match": {
+            "color": "#FF4F00",
+            "diff": 2976.7959265100285,
+            "exact": false,
+            "name": "International Orange",
+            "shade": "#FFA500",
+            "shadeName": "Orange"
+          }
+        },
+        {
+          "hex": "#bef2fd",
+          "match": {
+            "color": "#E0FFFF",
+            "diff": 2550.6647261150265,
+            "exact": false,
+            "name": "Light Cyan",
+            "shade": "#0000FF",
+            "shadeName": "Blue"
+          }
+        },
+        {
+          "hex": "#4e3eb5",
+          "match": {
+            "color": "#4156C5",
+            "diff": 1728.196679217699,
+            "exact": false,
+            "name": "Free Speech Blue",
+            "shade": "#0000FF",
+            "shadeName": "Blue"
+          }
+        },
+        {
+          "hex": "#ec0c50",
+          "match": {
+            "color": "#E30B5C",
+            "diff": 296.87755367495663,
+            "exact": false,
+            "name": "Razzmatazz",
+            "shade": "#FF0000",
+            "shadeName": "Red"
+          }
+        },
+        {
+          "hex": "#272cdf",
+          "match": {
+            "color": "#1C39BB",
+            "diff": 2778.281863714903,
+            "exact": false,
+            "name": "Persian Blue",
+            "shade": "#0000FF",
+            "shadeName": "Blue"
+          }
+        },
+        {
+          "hex": "#d66074",
+          "match": {
+            "color": "#CD526C",
+            "diff": 803.910503156944,
+            "exact": false,
+            "name": "Cabaret",
+            "shade": "#FF0000",
+            "shadeName": "Red"
+          }
+        },
+        {
+          "hex": "#b0ed03",
+          "match": {
+            "color": "#A7FC00",
+            "diff": 489.4876775222465,
+            "exact": false,
+            "name": "Spring Bud",
+            "shade": "#008000",
+            "shadeName": "Green"
+          }
+        },
+        {
+          "hex": "#7c9a11",
+          "match": {
+            "color": "#71A91D",
+            "diff": 2124.4184661890727,
+            "exact": false,
+            "name": "Christi",
+            "shade": "#008000",
+            "shadeName": "Green"
+          }
+        },
+        {
+          "hex": "#254321",
+          "match": {
+            "color": "#21421E",
+            "diff": 197.56472222222317,
+            "exact": false,
+            "name": "Myrtle",
+            "shade": "#008000",
+            "shadeName": "Green"
+          }
+        },
+        {
+          "hex": "#aac072",
+          "match": {
+            "color": "#AFC182",
+            "diff": 695.2468181723921,
+            "exact": false,
+            "name": "Caper",
+            "shade": "#008000",
+            "shadeName": "Green"
+          }
+        },
+        {
+          "hex": "#998537",
+          "match": {
+            "color": "#928C3C",
+            "diff": 564.8889031864736,
+            "exact": false,
+            "name": "Highball",
+            "shade": "#008000",
+            "shadeName": "Green"
+          }
+        },
+        {
+          "hex": "#4beeaa",
+          "match": {
+            "color": "#40E0D0",
+            "diff": 3917.263937321939,
+            "exact": false,
+            "name": "Turquoise",
+            "shade": "#0000FF",
+            "shadeName": "Blue"
+          }
+        },
+        {
+          "hex": "#5b80a5",
+          "match": {
+            "color": "#5D8AA8",
+            "diff": 174.28440833521955,
+            "exact": false,
+            "name": "Air Force Blue",
+            "shade": "#0000FF",
+            "shadeName": "Blue"
+          }
+        },
+        {
+          "hex": "#04d048",
+          "match": {
+            "color": "#03C03C",
+            "diff": 555.4525323810499,
+            "exact": false,
+            "name": "Dark Pastel Green",
+            "shade": "#008000",
+            "shadeName": "Green"
+          }
+        },
+        {
+          "hex": "#be1864",
+          "match": {
+            "color": "#C71585",
+            "diff": 1448.0972827934168,
+            "exact": false,
+            "name": "Medium Violet Red",
+            "shade": "#FF0000",
+            "shadeName": "Red"
+          }
+        }
+      ],
+      "matchcolors": [
+        "#C71585",
+        "#FF4F00",
+        "#E0FFFF",
+        "#4156C5",
+        "#E30B5C",
+        "#1C39BB",
+        "#CD526C",
+        "#A7FC00",
+        "#71A91D",
+        "#21421E",
+        "#AFC182",
+        "#928C3C",
+        "#40E0D0",
+        "#5D8AA8",
+        "#03C03C",
+        "#C71585"
+      ],
+      "matchnames": [
+        "Medium Violet Red",
+        "International Orange",
+        "Light Cyan",
+        "Free Speech Blue",
+        "Razzmatazz",
+        "Persian Blue",
+        "Cabaret",
+        "Spring Bud",
+        "Christi",
+        "Myrtle",
+        "Caper",
+        "Highball",
+        "Turquoise",
+        "Air Force Blue",
+        "Dark Pastel Green",
+        "Medium Violet Red"
+      ]
+    }
+  },
+  "md5": {
+    "hash": "7fc56270e7a70fa81a5935b72eacbe29",
+    "pad": "7fc56270e7a70fa81a5935b72eacbe298888",
+    "colors": [
+      "7fc562",
+      "70e7a7",
+      "0fa81a",
+      "5935b7",
+      "2eacbe",
+      "298888"
+    ],
+    "trail": {
+      "colors": [
+        "#7fc562",
+        "#70e7a7",
+        "#0fa81a",
+        "#5935b7",
+        "#2eacbe",
+        "#298888"
+      ],
+      "hashColors": [
+        {
+          "hex": "#7fc562",
+          "match": {
+            "color": "#7FC15C",
+            "diff": 129.8085197536207,
+            "exact": false,
+            "name": "Mantis",
+            "shade": "#008000",
+            "shadeName": "Green"
+          }
+        },
+        {
+          "hex": "#70e7a7",
+          "match": {
+            "color": "#90EE90",
+            "diff": 3195.9894843016455,
+            "exact": false,
+            "name": "Light Green",
+            "shade": "#008000",
+            "shadeName": "Green"
+          }
+        },
+        {
+          "hex": "#0fa81a",
+          "match": {
+            "color": "#03C03C",
+            "diff": 4444.76222428171,
+            "exact": false,
+            "name": "Dark Pastel Green",
+            "shade": "#008000",
+            "shadeName": "Green"
+          }
+        },
+        {
+          "hex": "#5935b7",
+          "match": {
+            "color": "#652DC1",
+            "diff": 1002.7898288343979,
+            "exact": false,
+            "name": "Purple Heart",
+            "shade": "#EE82EE",
+            "shadeName": "Violet"
+          }
+        },
+        {
+          "hex": "#2eacbe",
+          "match": {
+            "color": "#2599B2",
+            "diff": 1087.3314800226885,
+            "exact": false,
+            "name": "Pelorous",
+            "shade": "#0000FF",
+            "shadeName": "Blue"
+          }
+        },
+        {
+          "hex": "#298888",
+          "match": {
+            "color": "#297B76",
+            "diff": 766.3155939286986,
+            "exact": false,
+            "name": "Elm",
+            "shade": "#008000",
+            "shadeName": "Green"
+          }
+        }
+      ],
+      "matchcolors": [
+        "#7FC15C",
+        "#90EE90",
+        "#03C03C",
+        "#652DC1",
+        "#2599B2",
+        "#297B76"
+      ],
+      "matchnames": [
+        "Mantis",
+        "Light Green",
+        "Dark Pastel Green",
+        "Purple Heart",
+        "Pelorous",
+        "Elm"
+      ]
+    }
+  }
+}
