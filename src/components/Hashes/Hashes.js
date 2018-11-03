@@ -7,7 +7,7 @@ export const Hashes = (props) => {
     <ul>
       {
         hashes.map(
-          (hash) => (<li>{ hash.name }: { hash.hashed }</li>)
+          (hash, index) => (<li key={index}>{ hash.name }: { hash.hashed }</li>)
         )
       }
     </ul>

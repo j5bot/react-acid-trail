@@ -1,66 +1,130 @@
 import React, { Component } from 'react';
-import {withFauxDOM} from 'react-faux-dom';
+import { withFauxDOM } from 'react-faux-dom';
 import * as d3 from 'd3';
+
+import AcidTrail from '../../modules/acid-trail/AcidTrail';
 
 class AcidTrailChartComponent extends Component {
 
-  componentDidMount () {
+  addBar ({
+    colors,
+    names,
+    svg,
+    height = 50
+  }) {
 
-    const { animateFauxDOM, connectFauxDOM, data } = this.props;
+    const rectWidth = 100 / colors.length;
+    const data = d3.range(colors.length);
+    const range =
+      d3
+        .scaleQuantize()
+        .domain([ 0, colors.length ])
+        .range(colors);
+    const namesRange =
+      d3
+        .scaleQuantize()
+        .domain([ 0, colors.length ])
+        .range(names);
 
-    const faux = connectFauxDOM('div', 'chart');
-
-    let margin = { top: 20, right: 20, bottom: 30, left: 40 },
-        width = this.props.width - margin.left - margin.right,
-        height = this.props.height - margin.top - margin.bottom;
-
-    let x = d3.scaleBand()
-      .rangeRound([ 0, width ]);
-
-    let y = d3.scaleLinear()
-      .range([ height, 0 ]);
-
-    let xAxis = d3.axisBottom()
-      .scale(x);
-
-    let yAxis = d3.axisLeft()
-      .scale(y)
-      .ticks(10, '%');
-
-    // Pass it to d3.select and proceed as normal
-    let svg = d3.select(faux).append('svg')
-      .attr('width', width + margin.left + margin.right)
-      .attr('height', height + margin.top + margin.bottom)
-      .append('g')
-      .attr('transform', `translate(${margin.left},${margin.top})`);
-
-    x.domain(data.map((d) => d.letter));
-    y.domain([ 0, d3.max(data, (d) => d.frequency) ]);
-
-    svg.append('g')
-      .attr('class', 'x axis')
-      .attr('transform', `translate(0,${height})`)
-      .call(xAxis);
-
-    svg.append('g')
-      .attr('class', 'y axis')
-      .call(yAxis)
-      .append('text')
-      .attr('transform', 'rotate(-90)')
-      .attr('y', 6)
-      .attr('dy', '.71em')
-      .style('text-anchor', 'end')
-      .text('Frequency');
-
-    svg.selectAll('.bar')
+    svg
+      .selectAll('.rects')
       .data(data)
       .enter()
       .append('rect')
-      .attr('class', 'bar')
-      .attr('x', (d) => x(d.letter))
-      .attr('width', 20)
-      .attr('y', (d) => y(d.frequency))
-      .attr('height', (d) => { return height - y(d.frequency); });
+      .attr('y', 0)
+      .attr('x', (datum, index) => `${rectWidth * index}%`)
+      .attr('height', height)
+      .attr('width', `${rectWidth}%`)
+      .attr('fill', (datum) => range(datum))
+      .attr('stroke', 'white');
+
+    svg
+      .selectAll('.texts')
+      .data(data)
+      .enter()
+      .append('text')
+      .attr('y', 0)
+      .attr('dy', '80%')
+      .attr('x', (datum, index) => `${rectWidth * index}%`)
+      .attr('dx', `${rectWidth * 0.1}%`)
+      .attr('height', height / 3)
+      .attr('width', `${rectWidth}%`)
+      .attr('class', 'color-text')
+      .attr('textLength', `${rectWidth * 0.8}%`)
+      .attr('lengthAdjust', 'spacingAndGlyphs')
+      .text((datum) => `${namesRange(datum)}`);
+
+  }
+
+  componentDidMount () {
+
+    const { animateFauxDOM, connectFauxDOM, hash } = this.props;
+
+    const height = '50';
+
+    const trail = AcidTrail.trail(hash.hashed);
+
+    const faux = connectFauxDOM('div', 'chart');
+
+    const hashcolors = trail.colors();
+    const shadenames = trail.hashColors.map(
+      (color) => color.match.shadeName
+    );
+    const shades = trail.hashColors.map(
+      (color) => color.match.shade.toLowerCase()
+    );
+    const matchcolors = trail.matchcolors().map(
+      (color) => color.toLowerCase()
+    );
+    const matchnames = trail.matchnames();
+
+    let svg = d3.select(faux).append('svg')
+      .attr('width', '100%')
+      .attr('height', height)
+      .append('g');
+
+    this.addBar({
+      colors: hashcolors,
+      names:  hashcolors,
+      svg,
+      height
+    });
+
+    svg = d3.select(faux).append('svg')
+      .attr('width', '100%')
+      .attr('height', height)
+      .append('g');
+
+    this.addBar({
+      colors: shades,
+      names:  shadenames,
+      svg,
+      height
+    });
+
+    svg = d3.select(faux).append('svg')
+      .attr('width', '100%')
+      .attr('height', height)
+      .append('g');
+
+    this.addBar({
+      colors: matchcolors,
+      names:  matchcolors,
+      svg,
+      height
+    });
+
+    svg = d3.select(faux).append('svg')
+      .attr('width', '100%')
+      .attr('height', height)
+      .append('g');
+
+    this.addBar({
+      colors: matchcolors,
+      names:  matchnames,
+      svg,
+      height
+    });
 
     animateFauxDOM(800);
   }

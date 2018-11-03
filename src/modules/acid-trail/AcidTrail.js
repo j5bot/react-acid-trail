@@ -6,7 +6,8 @@ Modifications copyright (c) 2013 Jonathan Cook
 Licensed under the MIT License
 */
 import NTC from './NTC';
-import CryptoJS from '../../../public/scripts/vendor/crypto-js/crypto-js';
+// import CryptoJS from '../../../public/scripts/vendor/crypto-js/crypto-js';
+import CryptoJS from 'crypto-js';
 
 export class AcidTrail {
 

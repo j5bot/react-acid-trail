@@ -140,6 +140,7 @@ export const hsl = (color) => {
 
     sat = light > 0.5 ? diff / (2 - max - min) : diff / (max + min);
     switch (max) {
+    default: break;
     case red: hue = (green - blue) / diff + (green < blue ? 6 : 0); break;
     case green: hue = (blue - red) / diff + 2; break;
     case blue: hue = (red - green) / diff + 4; break;
@@ -326,6 +327,32 @@ export const matchShade = (color) => {
 };
 
 /**
+ * Return a colormatch representing whether black or white would be the better
+ * text color to contrast with the given color.
+ *
+ * @param  {String}      color RGB hex color value
+ * @return {ColorMatch}  colormatch for opposite text color
+ */
+export const textColor = (color) => {
+  const textColors = sort(
+    init(
+      [ '000000', 'Black', 'Black' ],
+      [ 'FFFFFF', 'White', 'White' ]
+    )
+  );
+
+  const opposite = match(color, textColors);
+
+  return colormatch(
+    textColors.filter(
+      (color) => {
+        return color[0] !== opposite.color;
+      }
+    )[0]
+  );
+};
+
+/**
  * Add a single color to the list of named colors.
  *
  * @param {Object} color       An object with `hex` and `name` properties to add
@@ -348,8 +375,6 @@ export const addColor = (color, namedColors) => {
  *                              named color that was added.
  */
 const addNewColor = (color, namedColors) => {
-  namedColors = namedColors;
-
   const { hex, name } = color;
   const shadeColor = matchShade(hex);
 

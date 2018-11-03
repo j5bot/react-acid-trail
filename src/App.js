@@ -17,49 +17,14 @@ import {
 } from 'reactstrap';
 
 import {
+  AcidTrailChartsContainer,
   EnterStringContainer,
   FileChooserContainer,
   HashButtonContainer,
-  HashesContainer
+  // HashesContainer
 } from './containers';
-import {
-  AcidTrailChart
-} from './components';
 
 library.add(faHandPointer, faFile);
-
-const chartState = {
-  width:  960,
-  height: 600,
-  data:   [
-    { letter: 'A', frequency: 0.08167 },
-    { letter: 'B', frequency: 0.01492 },
-    { letter: 'C', frequency: 0.02780 },
-    { letter: 'D', frequency: 0.04253 },
-    { letter: 'E', frequency: 0.12702 },
-    { letter: 'F', frequency: 0.02288 },
-    { letter: 'G', frequency: 0.02022 },
-    { letter: 'H', frequency: 0.06094 },
-    { letter: 'I', frequency: 0.06973 },
-    { letter: 'J', frequency: 0.00153 },
-    { letter: 'K', frequency: 0.00747 },
-    { letter: 'L', frequency: 0.04025 },
-    { letter: 'M', frequency: 0.02517 },
-    { letter: 'N', frequency: 0.06749 },
-    { letter: 'O', frequency: 0.07507 },
-    { letter: 'P', frequency: 0.01929 },
-    { letter: 'Q', frequency: 0.00098 },
-    { letter: 'R', frequency: 0.05987 },
-    { letter: 'S', frequency: 0.06333 },
-    { letter: 'T', frequency: 0.09056 },
-    { letter: 'U', frequency: 0.02758 },
-    { letter: 'V', frequency: 0.01037 },
-    { letter: 'W', frequency: 0.02465 },
-    { letter: 'X', frequency: 0.00150 },
-    { letter: 'Y', frequency: 0.01971 },
-    { letter: 'Z', frequency: 0.00074 },
-  ]
-};
 
 class App extends Component {
   constructor (props) {
@@ -95,16 +60,11 @@ class App extends Component {
           <Container>
             <Row>
               <Col>
-                <h1>Welcome to React</h1>
-                <AcidTrailChart
-                  width={ chartState.width }
-                  height={ chartState.height }
-                  data={ chartState.data }
-                />
+                <h1>Welcome to the ACID House</h1>
+                <AcidTrailChartsContainer/>
                 <EnterStringContainer/>
                 <FileChooserContainer/>
                 <HashButtonContainer/>
-                <HashesContainer/>
               </Col>
             </Row>
           </Container>
