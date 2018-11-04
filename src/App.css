@@ -7,3 +7,14 @@
   font-weight: bold;
   stroke-opacity: 0.3;
 }
+.data-container {
+  display: flex;
+  flex-direction: row;
+  border: solid 2px #aaaaaa;
+  border-radius: 5px;
+}
+.data-container > textarea {
+  border: solid 1px #aaaaaa;
+  border-width: 0 1px 0 0;
+  padding: 1rem;
+}

@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export const FileChooser = (props) => {
 
-  const { choose } = props;
+  const { choose, files } = props;
 
   return (
     <div id="dropZone">
@@ -17,6 +17,7 @@ export const FileChooser = (props) => {
         name="file"
         id="file"
         className="inputfile"
+        multiple
         onChange={ choose }
       />
       <p>
@@ -26,6 +27,18 @@ export const FileChooser = (props) => {
           </label>
         </Button>
       </p>
+      <div className="icon-list">
+        {
+          Array.prototype.map.call(
+            files,
+            (file, index) => (
+              <div key={ index } title={ file.name }>
+                <FontAwesomeIcon icon="file"/>
+              </div>
+            )
+          )
+        }
+      </div>
     </div>);
 
 };

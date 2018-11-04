@@ -11,6 +11,7 @@ export const EnterString = (props) => {
       name="text"
       id="text"
       onChange={ enter }
+      placeholder="create ACID trail from this data"
     />
   );
 

@@ -51,32 +51,7 @@ export const actions = {
   createFinishHashAction,
 };
 
-// export const hashFiles = () =>
-//   (dispatch, getState) => {
-//     dispatch(createStartHashAction());
-//
-//     const files = getState().hasher.files;
-//
-//     const hasher = new WorkerFileHasher({
-//       files
-//     });
-//
-//     hasher.fileWorkers.forEach(
-//       (fileWorker) => dispatch(
-//         createFinishHashAction(
-//           fileWorker.hash()
-//         )
-//       )
-//     );
-//
-//   };
-//
-// export const functions = {
-//   hashFiles
-// };
-
 export default {
   ...types,
   ...actions
-  // ...functions
 };

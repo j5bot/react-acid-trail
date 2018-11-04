@@ -58,7 +58,17 @@ class AcidTrailChartComponent extends Component {
 
   componentDidMount () {
 
-    const { animateFauxDOM, connectFauxDOM, hash } = this.props;
+    const {
+      animateFauxDOM,
+      connectFauxDOM,
+      hash,
+      showBars = {
+        hash:   true,
+        shades: true,
+        colors: true,
+        names:  true
+      }
+    } = this.props;
 
     const height = '50';
 
@@ -66,65 +76,80 @@ class AcidTrailChartComponent extends Component {
 
     const faux = connectFauxDOM('div', 'chart');
 
-    const hashcolors = trail.colors();
-    const shadenames = trail.hashColors.map(
-      (color) => color.match.shadeName
-    );
-    const shades = trail.hashColors.map(
-      (color) => color.match.shade.toLowerCase()
-    );
-    const matchcolors = trail.matchcolors().map(
-      (color) => color.toLowerCase()
-    );
-    const matchnames = trail.matchnames();
+    let svg;
 
-    let svg = d3.select(faux).append('svg')
-      .attr('width', '100%')
-      .attr('height', height)
-      .append('g');
+    if (showBars.hash) {
+      const hashcolors = trail.colors();
 
-    this.addBar({
-      colors: hashcolors,
-      names:  hashcolors,
-      svg,
-      height
-    });
+      svg = d3.select(faux).append('svg')
+        .attr('width', '100%')
+        .attr('height', height)
+        .append('g');
 
-    svg = d3.select(faux).append('svg')
-      .attr('width', '100%')
-      .attr('height', height)
-      .append('g');
+      this.addBar({
+        colors: hashcolors,
+        names:  hashcolors,
+        svg,
+        height
+      });
+    }
 
-    this.addBar({
-      colors: shades,
-      names:  shadenames,
-      svg,
-      height
-    });
+    if (showBars.shades) {
+      const shadenames = trail.hashColors.map(
+        (color) => color.match.shadeName
+      );
+      const shades = trail.hashColors.map(
+        (color) => color.match.shade.toLowerCase()
+      );
 
-    svg = d3.select(faux).append('svg')
-      .attr('width', '100%')
-      .attr('height', height)
-      .append('g');
+      svg = d3.select(faux).append('svg')
+        .attr('width', '100%')
+        .attr('height', height)
+        .append('g');
 
-    this.addBar({
-      colors: matchcolors,
-      names:  matchcolors,
-      svg,
-      height
-    });
+      this.addBar({
+        colors: shades,
+        names:  shadenames,
+        svg,
+        height
+      });
+    }
 
-    svg = d3.select(faux).append('svg')
-      .attr('width', '100%')
-      .attr('height', height)
-      .append('g');
+    if (showBars.colors || showBars.names) {
+      const matchcolors = trail.matchcolors().map(
+        (color) => color.toLowerCase()
+      );
 
-    this.addBar({
-      colors: matchcolors,
-      names:  matchnames,
-      svg,
-      height
-    });
+      if (showBars.colors) {
+        svg = d3.select(faux).append('svg')
+          .attr('width', '100%')
+          .attr('height', height)
+          .append('g');
+
+        this.addBar({
+          colors: matchcolors,
+          names:  matchcolors,
+          svg,
+          height
+        });
+      }
+
+      if (showBars.names) {
+        const matchnames = trail.matchnames();
+
+        svg = d3.select(faux).append('svg')
+          .attr('width', '100%')
+          .attr('height', height)
+          .append('g');
+
+        this.addBar({
+          colors: matchcolors,
+          names:  matchnames,
+          svg,
+          height
+        });
+      }
+    }
 
     animateFauxDOM(800);
   }

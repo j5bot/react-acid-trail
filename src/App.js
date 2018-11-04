@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import './checkbox.css';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faHandPointer, faFile } from '@fortawesome/free-solid-svg-icons';
@@ -20,8 +21,7 @@ import {
   AcidTrailChartsContainer,
   EnterStringContainer,
   FileChooserContainer,
-  HashButtonContainer,
-  // HashesContainer
+  HashButtonContainer
 } from './containers';
 
 library.add(faHandPointer, faFile);
@@ -60,11 +60,16 @@ class App extends Component {
           <Container>
             <Row>
               <Col>
-                <h1>Welcome to the ACID House</h1>
-                <AcidTrailChartsContainer/>
-                <EnterStringContainer/>
-                <FileChooserContainer/>
-                <HashButtonContainer/>
+                <h1>ACID Trail</h1>
+                <p>An ACID trail is an Associated Color ID for a file or other
+                  arbitrary data.</p>
+                <AcidTrailChartsContainer>
+                  <HashButtonContainer/>
+                </AcidTrailChartsContainer>
+                <div className="data-container">
+                  <EnterStringContainer/>
+                  <FileChooserContainer/>
+                </div>
               </Col>
             </Row>
           </Container>

@@ -10,7 +10,7 @@ const {
 } = actions;
 
 const mapStateToProps = (state) => ({
-  ...state
+  ...state.hasher
 });
 
 const getFilesFromItems = (items) => {

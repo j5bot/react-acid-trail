@@ -1,0 +1,30 @@
+.checkbox {
+  visibility: hidden;
+}
+.checkbox-container {
+  cursor: pointer;
+}
+.checkbox-bar {
+  width: 30px;
+  height: 10px;
+  background: #555;
+  margin: 20px 20px;
+  position: relative;
+  border-radius: 3px;
+}
+.checkbox-label {
+  display: block;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+
+  transition: all .2s ease;
+  position: absolute;
+  top: -3px;
+  left: -3px;
+
+  background: #ccc;
+}
+.checkbox:checked + label {
+  left: 17px;
+}

@@ -1,6 +1,7 @@
 import { types } from '../actions';
 
 const defaultState = {
+  job:     0,
   files:   [],
   strings: [],
   hashes:  []
@@ -49,6 +50,7 @@ export const hasher = (state = defaultState, action) => {
 
     newState = {
       ...newState,
+      job:    newState.job++,
       hashes: [
         ...newState.hashes,
         {

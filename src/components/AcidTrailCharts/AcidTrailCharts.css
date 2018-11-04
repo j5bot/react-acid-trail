@@ -1,0 +1,25 @@
+.showBars {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.showBars > div {
+  flex-basis: 15%;
+  flex-grow: 0;
+  flex-shrink: 0;
+}
+.showBars > .hash-button {
+  margin-left: 5%;
+  justify-self: flex-end;
+  flex-grow: 10;
+  text-align: right;
+}
+.showBar-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.acid-trail-charts {
+  margin: 1rem;
+}

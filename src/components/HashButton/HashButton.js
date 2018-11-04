@@ -7,7 +7,7 @@ export const HashButton = (props) => {
   const { hash } = props;
 
   return (
-    <div>
+    <div className="hash-button">
       <Button onClick={ hash }>
         Hash
       </Button>

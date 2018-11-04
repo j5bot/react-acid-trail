@@ -18,12 +18,10 @@ button {
 }
 
 #dropZone {
-  height: 15rem;
-  width: 15rem;
+  height: 16rem;
+  width: 16rem;
   padding: 2rem;
   margin: 1rem;
-  border: dotted 2px blue;
-  border-radius: 0.5rem;
 
   display: flex;
   flex-direction: column;
@@ -36,7 +34,7 @@ button {
   padding: 0.5rem;
   width: 100%;
 }
-.pointer > svg {
+#dropZone > .pointer > svg {
   font-size: 3rem;
   transform: rotate(-20deg);
 }
@@ -48,7 +46,7 @@ button {
   width: 100%;
 }
 
-.inputfile {
+#dropZone .inputfile {
   width: 0.01px;
   height: 0.01px;
   opacity: 0;
@@ -57,7 +55,7 @@ button {
   z-index: -1;
 }
 
-button > label {
+#dropZone button > label {
   font-size: 1.25rem;
   font-weight: 700;
   color: white;
@@ -66,4 +64,14 @@ button > label {
   border-radius: 0.5rem;
   text-align: center;
   margin: 0;
+}
+
+#dropZone .icon-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  height: 1rem;
+}
+#dropZone .icon-list > * {
+  padding: 0.5rem;
 }
