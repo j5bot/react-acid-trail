@@ -1,13 +1,13 @@
 import React from 'react';
 
-export const AcidTrailShowBar = (props) => {
+export const AcidTrailCheckbox = (props) => {
 
-  const { change, show } = props;
+  const { change, show, checked } = props;
 
   return (
     <label
       htmlFor={ `${show}-checkbox` }
-      className="showBar-container checkbox-container">
+      className="showChoice-container checkbox-container">
       <div
         className="checkbox-bar">
         <input
@@ -15,7 +15,8 @@ export const AcidTrailShowBar = (props) => {
           id={ `${show}-checkbox` }
           type="checkbox"
           value={ show }
-          className="showBarsCheckbox checkbox"
+          checked={ checked || false }
+          className="acidTrailCheckbox checkbox"
           onChange={ change }/>
         <label
           htmlFor={ `${show}-checkbox` }
@@ -27,4 +28,4 @@ export const AcidTrailShowBar = (props) => {
 
 };
 
-export default AcidTrailShowBar;
+export default AcidTrailCheckbox;

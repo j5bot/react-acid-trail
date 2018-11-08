@@ -3,6 +3,9 @@ export {
 } from './AcidTrailChartsContainer/AcidTrailChartsContainer';
 export { BaseContainer } from './BaseContainer/BaseContainer';
 export {
+  ClearButtonContainer
+} from './ClearButtonContainer/ClearButtonContainer';
+export {
   EnterStringContainer
 } from './EnterStringContainer/EnterStringContainer';
 export {
@@ -14,3 +17,6 @@ export {
 export {
   HashesContainer
 } from './HashesContainer/HashesContainer';
+export {
+  IpsumSaltContainer
+} from './IpsumSaltContainer/IpsumSaltContainer';

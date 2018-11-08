@@ -3,7 +3,14 @@ import './App.css';
 import './checkbox.css';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faHandPointer, faFile } from '@fortawesome/free-solid-svg-icons';
+import {
+  faExclamationTriangle,
+  faFile,
+  faFont,
+  faHandPointer,
+  faSpinner,
+  faThumbsUp,
+} from '@fortawesome/free-solid-svg-icons';
 
 import {
   Navbar,
@@ -19,12 +26,24 @@ import {
 
 import {
   AcidTrailChartsContainer,
+  ClearButtonContainer,
   EnterStringContainer,
   FileChooserContainer,
   HashButtonContainer
 } from './containers';
 
-library.add(faHandPointer, faFile);
+import {
+  IpsumSaltContainer
+} from './containers';
+
+library.add(
+  faExclamationTriangle,
+  faFile,
+  faFont,
+  faHandPointer,
+  faSpinner,
+  faThumbsUp
+);
 
 class App extends Component {
   constructor (props) {
@@ -64,12 +83,16 @@ class App extends Component {
                 <p>An ACID trail is an Associated Color ID for a file or other
                   arbitrary data.</p>
                 <AcidTrailChartsContainer>
-                  <HashButtonContainer/>
+                  <div className="buttons-container">
+                    <HashButtonContainer/>
+                    <ClearButtonContainer/>
+                  </div>
                 </AcidTrailChartsContainer>
                 <div className="data-container">
                   <EnterStringContainer/>
                   <FileChooserContainer/>
                 </div>
+                <IpsumSaltContainer />
               </Col>
             </Row>
           </Container>

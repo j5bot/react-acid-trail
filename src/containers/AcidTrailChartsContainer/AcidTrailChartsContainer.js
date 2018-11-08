@@ -3,7 +3,10 @@ import { AcidTrailCharts } from '../../components';
 
 import { actions } from '../../actions';
 
-const { createChangeShowBarsAction } = actions;
+const {
+  createChangeShowBarsAction,
+  createChangeShowShapeAction
+} = actions;
 
 const mapStateToProps = (state) => ({
   ...state.hasher,
@@ -15,6 +18,11 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
     dispatch(createChangeShowBarsAction(
       event.target.value,
       event.target.checked
+    ));
+  },
+  changeShowShape: (event) => {
+    dispatch(createChangeShowShapeAction(
+      event.target.checked ? event.target.value : false
     ));
   }
 });

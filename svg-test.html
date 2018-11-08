@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      html,body { width: 100%; height:100% }
+      svg { height: 50px; width: 500px; border: solid 1px red }
+    </style>
+  </head>
+  <body>
+
+    <svg id="svg" width="100%" height="100%"
+         preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" version="1.1">
+    </svg>
+
+    <script>
+      console.log('foo');
+
+      var ns = 'http://www.w3.org/2000/svg';
+      var svg = document.getElementById('svg');
+
+      var c = [ 'red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet' ];
+      svg.setAttribute('viewBox', [0, 0, 55 * c.length - 5, 25].join(' '));
+
+      var polypoints = function (index) {
+        var i = index;
+        var w = 50;   // width
+        var m = 0.1;  // horizontal margin
+        var h = 0.5;    // height
+        var n = 0.1;  // notch width & height
+
+        var top = 0,
+            left = (i * m * w) + (i * w),
+            right = left + w,
+            bottom = (w * h),
+            notchBottom = bottom - (n * w),
+            notchRight = right - (n * w);
+
+        var a = [left,top],
+            b = [right,top],
+            c = [right,notchBottom],
+            d = [notchRight, bottom],
+            e = [left,bottom];
+
+        var pts = [a,b,c,d,e,a];
+
+        return pts;
+      }
+
+      var poly = function (color, index) {
+        var p = document.createElementNS(ns, 'polygon');
+        var pts = polypoints(index);
+        var ptsm = pts.map(
+          function (pt) {
+            return pt.join(',')
+          }
+        ).join(' ');
+
+        p.setAttribute('points', ptsm);
+        p.setAttribute('fill', color);
+
+        return p;
+      };
+
+      c.map(
+        poly
+      ).map(
+        (p) => svg.appendChild(p)
+      );
+
+    </script>
+  </body>
+</html>

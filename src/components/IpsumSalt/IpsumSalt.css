@@ -1,0 +1,27 @@
+.ipsum-salt {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0.5rem;
+}
+.ipsum-salt > p {
+  text-transform: uppercase;
+  font-weight: bold;
+  color: rgba(0,0,0,0.5);
+  flex-basis: 10%;
+  line-height: calc(2.25rem + 2px);
+  margin: 0;
+}
+.ipsum-salt > select {
+  flex-basis: 65%;
+}
+.ipsum-salt > .icon {
+  flex-basis: 2rem;
+  text-align: right;
+}
+.ipsum-salt > button {
+  align-self: flex-end;
+  margin: 0 0.5rem 0 1rem;
+  flex-basis: 18.5rem;
+}

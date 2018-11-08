@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { EnterString } from '../../components';
+import { IpsumSalt } from '../../components';
 
 import { actions } from '../../actions';
 
@@ -8,21 +8,21 @@ const {
 } = actions;
 
 const mapStateToProps = (state) => ({
-  ...state.hasher
+  ...state
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-  enter:      (event) => {
+  salt:     (string) => {
     return dispatch(
       createEnterStringAction(
-        event.target.value
+        string
       )
     );
   }
 });
 
-export const EnterStringContainer = connect(
+export const IpsumSaltContainer = connect(
   mapStateToProps,
   mapDispatchToProps
-)(EnterString);
-export default EnterStringContainer;
+)(IpsumSalt);
+export default IpsumSaltContainer;

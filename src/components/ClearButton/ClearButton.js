@@ -2,18 +2,18 @@ import React from 'react';
 import { Button } from 'reactstrap';
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-export const HashButton = (props) => {
+export const ClearButton = (props) => {
 
-  const { hash } = props;
+  const { clear } = props;
 
   return (
-    <div className="hash-button">
-      <Button onClick={ hash }>
-        Create
+    <div className="clear-button">
+      <Button onClick={ clear }>
+        Clear
       </Button>
     </div>
   );
 
 };
 
-export default HashButton;
+export default ClearButton;

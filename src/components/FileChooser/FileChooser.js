@@ -23,7 +23,7 @@ export const FileChooser = (props) => {
       <p>
         <Button>
           <label htmlFor="file">
-            <FontAwesomeIcon icon="file"/> Choose File
+            <FontAwesomeIcon icon="file"/> Choose Files
           </label>
         </Button>
       </p>

@@ -1,11 +1,13 @@
 import { types } from '../actions';
 
 const defaultState = {
-  showBars: {}
+  showShape: 'notched',
+  showBars:  {}
 };
 
 const {
-  CHANGE_SHOWBARS
+  CHANGE_SHOWBARS,
+  CHANGE_SHOWSHAPE
 } = types;
 
 export const acidTrail = (state = defaultState, action) => {
@@ -23,6 +25,15 @@ export const acidTrail = (state = defaultState, action) => {
         ...newState.showBars,
         ...payload
       }
+    };
+
+    break;
+
+  case CHANGE_SHOWSHAPE:
+
+    newState = {
+      ...newState,
+      showShape: payload.shape || defaultState.showShape
     };
 
     break;

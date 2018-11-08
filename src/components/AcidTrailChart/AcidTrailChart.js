@@ -2,18 +2,111 @@ import React, { Component } from 'react';
 import { withFauxDOM } from 'react-faux-dom';
 import * as d3 from 'd3';
 
+import './AcidTrailChart.css';
+
 import AcidTrail from '../../modules/acid-trail/AcidTrail';
 
 class AcidTrailChartComponent extends Component {
 
+  rect ({
+    group,
+    width,
+    height,
+    margin
+  }) {
+    return group
+      .append('rect')
+      .attr('y', 0)
+      .attr('x', (datum, index) => (index * margin) + (index * width))
+      .attr('height', height)
+      .attr('width', width);
+  }
+
+  ellipse ({
+    group,
+    width,
+    height,
+    margin
+  }) {
+    return group
+      .append('ellipse')
+      .attr('cy', height)
+      .attr('cx', (datum, index) => (index * margin) + (index * width) + (width / 2))
+      .attr('rx', width / 2)
+      .attr('ry', height);
+  }
+
+  notched ({
+    group,
+    width,
+    height,
+    margin
+  }) {
+    return group
+      .append('polygon')
+      .attr('points', (datum, index) => {
+        const top = 0;
+        const left = (index * margin) + (index * width);
+        const right = left + width;
+        const bottom = height;
+        const notchBottom = bottom - margin;
+        const notchRight = right - margin;
+
+        const points = [
+          [ left, top ],
+          [ right, top ],
+          [ right, notchBottom ],
+          [ notchRight, bottom ],
+          [ left, bottom ],
+          [ left, top ]
+        ];
+
+        return points.map(
+          (point) => point.join(',')
+        ).join(' ');
+      });
+  }
+
+  text ({
+    group,
+    width,
+    height,
+    margin
+  }) {
+    return group
+      .append('text')
+      .attr('y', 0)
+      .attr('dy', height * 0.8)
+      .attr('x', (datum, index) => (index * margin) + (index * width))
+      .attr('dx', width * 0.1)
+      .attr('height', height / 5)
+      .attr('width', width)
+      .attr('class', 'color-text')
+      .attr('textLength', width * 0.8)
+      .attr('lengthAdjust', 'spacing');
+  }
+
   addBar ({
     colors,
     names,
-    svg,
-    height = 50
+    faux,
+    height = 50,
+    shape = 'notched'
   }) {
 
-    const rectWidth = 100 / colors.length;
+    const width = 100;
+    const margin = width * 0.1;
+
+    const svg = faux
+      .append('svg')
+      .attr('viewBox', `0 0 ${width * colors.length + margin * (colors.length - 1)} ${height}`)
+      .attr('preserveAspectRatio', 'none')
+      .attr('width', '100%')
+      .attr('height', height);
+
+    const group = svg
+      .append('g');
+
     const data = d3.range(colors.length);
     const range =
       d3
@@ -26,33 +119,43 @@ class AcidTrailChartComponent extends Component {
         .domain([ 0, colors.length ])
         .range(names);
 
-    svg
-      .selectAll('.rects')
-      .data(data)
-      .enter()
-      .append('rect')
-      .attr('y', 0)
-      .attr('x', (datum, index) => `${rectWidth * index}%`)
-      .attr('height', height)
-      .attr('width', `${rectWidth}%`)
-      .attr('fill', (datum) => range(datum))
-      .attr('stroke', 'white');
+    this[shape]({
+      group:
+        group
+          .selectAll(`.${shape}s`)
+          .data(data)
+          .enter(),
+      width,
+      height,
+      margin
+    })
+      .attr('fill', (datum) => range(datum));
 
-    svg
-      .selectAll('.texts')
-      .data(data)
-      .enter()
-      .append('text')
-      .attr('y', 0)
-      .attr('dy', '80%')
-      .attr('x', (datum, index) => `${rectWidth * index}%`)
-      .attr('dx', `${rectWidth * 0.1}%`)
-      .attr('height', height / 3)
-      .attr('width', `${rectWidth}%`)
-      .attr('class', 'color-text')
-      .attr('textLength', `${rectWidth * 0.8}%`)
-      .attr('lengthAdjust', 'spacingAndGlyphs')
+    // this.rect(
+    //   {
+    //     group:
+    //       group
+    //         .selectAll('.rects')
+    //         .data(data)
+    //         .enter(),
+    //     width:  width,
+    //     height,
+    //     margin: margin
+    //   })
+    //   .attr('fill', (datum) => range(datum));
+
+    this.text({
+      group:
+        group
+          .selectAll('.texts')
+          .data(data)
+          .enter(),
+      width,
+      height,
+      margin
+    })
       .text((datum) => `${namesRange(datum)}`);
+      // .attr('lengthAdjust', 'spacingAndGlyphs');
 
   }
 
@@ -67,7 +170,8 @@ class AcidTrailChartComponent extends Component {
         shades: true,
         colors: true,
         names:  true
-      }
+      },
+      showShape
     } = this.props;
 
     const height = '50';
@@ -76,21 +180,15 @@ class AcidTrailChartComponent extends Component {
 
     const faux = connectFauxDOM('div', 'chart');
 
-    let svg;
-
     if (showBars.hash) {
       const hashcolors = trail.colors();
-
-      svg = d3.select(faux).append('svg')
-        .attr('width', '100%')
-        .attr('height', height)
-        .append('g');
 
       this.addBar({
         colors: hashcolors,
         names:  hashcolors,
-        svg,
-        height
+        faux:   d3.select(faux),
+        height,
+        shape:  showShape
       });
     }
 
@@ -102,16 +200,12 @@ class AcidTrailChartComponent extends Component {
         (color) => color.match.shade.toLowerCase()
       );
 
-      svg = d3.select(faux).append('svg')
-        .attr('width', '100%')
-        .attr('height', height)
-        .append('g');
-
       this.addBar({
         colors: shades,
         names:  shadenames,
-        svg,
-        height
+        faux:   d3.select(faux),
+        height,
+        shape:  showShape
       });
     }
 
@@ -121,32 +215,25 @@ class AcidTrailChartComponent extends Component {
       );
 
       if (showBars.colors) {
-        svg = d3.select(faux).append('svg')
-          .attr('width', '100%')
-          .attr('height', height)
-          .append('g');
 
         this.addBar({
           colors: matchcolors,
           names:  matchcolors,
-          svg,
-          height
+          faux:   d3.select(faux),
+          height,
+          shape:  showShape
         });
       }
 
       if (showBars.names) {
         const matchnames = trail.matchnames();
 
-        svg = d3.select(faux).append('svg')
-          .attr('width', '100%')
-          .attr('height', height)
-          .append('g');
-
         this.addBar({
           colors: matchcolors,
           names:  matchnames,
-          svg,
-          height
+          faux:   d3.select(faux),
+          height,
+          shape:  showShape
         });
       }
     }

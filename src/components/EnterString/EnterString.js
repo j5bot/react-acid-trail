@@ -2,7 +2,7 @@ import React from 'react';
 
 export const EnterString = (props) => {
 
-  const { enter } = props;
+  const { enter, string } = props;
 
   return (
     <textarea
@@ -10,6 +10,7 @@ export const EnterString = (props) => {
       cols="100"
       name="text"
       id="text"
+      value={ string }
       onChange={ enter }
       placeholder="create ACID trail from this data"
     />

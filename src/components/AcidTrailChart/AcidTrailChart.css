@@ -1,0 +1,10 @@
+.color-text {
+  fill: white;
+  stroke: #000;
+  stroke-width: 1;
+  stroke-linejoin: round;
+  paint-order: stroke;
+  font-weight: bold;
+  font-size: 65%;
+  stroke-opacity: 0.3;
+}

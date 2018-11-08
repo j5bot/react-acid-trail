@@ -1,11 +1,13 @@
 const CHOOSE_FILES = Symbol('CHOOSE_FILES');
 const ENTER_STRING = Symbol('ENTER_STRING');
+const CLEAR = Symbol('CLEAR');
 const START_HASH = Symbol('START_HASH');
 const FINISH_HASH = Symbol('FINISH_HASH');
 
 export const types = {
   CHOOSE_FILES,
   ENTER_STRING,
+  CLEAR,
   START_HASH,
   FINISH_HASH
 };
@@ -24,6 +26,15 @@ export const createEnterStringAction = (string) => {
     type:     ENTER_STRING,
     payload:  {
       string
+    }
+  };
+};
+
+export const createClearAction = () => {
+  return {
+    type:     CLEAR,
+    payload: {
+      clear: true
     }
   };
 };
@@ -47,6 +58,7 @@ export const createFinishHashAction = (payload) => {
 export const actions = {
   createChooseFilesAction,
   createEnterStringAction,
+  createClearAction,
   createStartHashAction,
   createFinishHashAction,
 };
