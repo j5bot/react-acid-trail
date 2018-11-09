@@ -31,12 +31,18 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "coverage": "react-scripts test --coverage --verbose",
+    "coverage-watch": "react-scripts test --coverage --watch --verbose",
+    "test": "react-scripts test --verbose",
     "test-debug": "react-scripts --inspect-brk=0.0.0.0:9229 test --env=jsdom --runInBand -i",
+    "test-watch": "react-scripts test --watch --verbose",
     "eject": "react-scripts eject",
     "doc": "jsdoc -r src/ package.json -c .jsdoc.config.json -d docs",
     "styleguidist": "styleguidist server",
-    "styleguidist:build": "styleguidist build"
+    "styleguidist:build": "styleguidist build",
+    "coverage:view": "open coverage/lcov-report/index.html",
+    "lint": "eslint **/*.js",
+    "release": "release-it"
   },
   "eslintConfig": {
     "extends": "react-app"
