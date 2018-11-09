@@ -8,3 +8,8 @@
   font-size: 65%;
   stroke-opacity: 0.3;
 }
+.trail-text-name {
+  text-transform: lowercase;
+  color: rgba(0,0,0,0.2);
+  margin-bottom: 0.2rem;
+}

@@ -97,6 +97,12 @@ class AcidTrailChartComponent extends Component {
     const width = 100;
     const margin = width * 0.1;
 
+    const title = names.join(' - ');
+
+    faux.append('div')
+      .attr('class', 'trail-text-name')
+      .text(title);
+
     const svg = faux
       .append('svg')
       .attr('viewBox', `0 0 ${width * colors.length + margin * (colors.length - 1)} ${height}`)

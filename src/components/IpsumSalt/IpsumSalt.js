@@ -1,10 +1,16 @@
-/* globals forcem, Neah */
+/* globals */
 import React, { Component } from 'react';
 import Script from 'react-load-script';
 import { Input, Button } from 'reactstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+import '../../modules/ipsum-salt/loader';
+
 import './IpsumSalt.css';
+
+const randomInt = (min,max) => {
+  return Math.ceil(Math.random() * (max - min)) + min;
+};
 
 const ipsums = [
   {
@@ -15,27 +21,32 @@ const ipsums = [
     ipsum:    'forcem',
     name:     'Forcem Ipsum',
     url:      '//cdn.jsdelivr.net/npm/forcem-ipsum@1.7.3/forcem.min.js',
-    callback: () => forcem().join('\n\n')
+    callback: () => window.forcem().join('\n\n')
   },
   {
     ipsum:    'neah',
     name:     'Ahnuld',
     url:      '//cdn.jsdelivr.net/npm/neah@1.0.2/neah.min.js',
-    callback: () => (new Neah())
+    callback: () => (new window.Neah())
       .paragraphs(5)
+  },
+  {
+    ipsum:    'synergipsum',
+    name:     'Office Space',
+    url:      './scripts/ipsum-salt/synergipsum/salt.js',
+    callback: () => {
+      const ipsum = [];
+      let pars = 5;
+
+      while (pars--) {
+        ipsum.push(
+          window.createSynergipsum(randomInt(2, 5)).generate()
+        );
+      }
+
+      return ipsum.join('\n\n');
+    }
   }
-  // {
-  //   ipsum:    'shakespeare-data',
-  //   name:     'The Bard',
-  //   url:      '//cdn.jsdelivr.net/npm/shakespeare-data@3.0.0/lib/shakespeare.js',
-  //   callback: () => Shakespeare.sonnets.random()
-  // },
-  // {
-  //   ipsum:    'samuel-l',
-  //   name:     'Samuel L. Ipsum',
-  //   url:      '//cdn.jsdelivr.net/npm/samuel-ipsum@1.0.10/dist/samuel-ipsum.min.js',
-  //   callback: () =>
-  // }
 ];
 
 export class IpsumSalt extends Component {
