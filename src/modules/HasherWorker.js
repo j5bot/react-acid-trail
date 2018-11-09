@@ -152,7 +152,7 @@ class HasherWorker {
    *  [FileReader]{@link https://developer.mozilla.org/en-US/docs/Web/API/FileReader}
    *  object used to read the file
    *
-   * @param {File||String} fileOrString The
+   * @param {Any} fileOrString The
    * [File]{@link https://developer.mozilla.org/en-US/docs/Web/API/File}
    *                                    or String
    *                                    to be hashed by the

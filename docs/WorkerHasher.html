@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Class: WorkerFileHasher</title>
+    <title>JSDoc: Class: WorkerHasher</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Class: WorkerFileHasher</h1>
+    <h1 class="page-title">Class: WorkerHasher</h1>
 
     
 
@@ -28,12 +28,12 @@
 
 <header>
     
-        <h2><span class="attribs"><span class="type-signature"></span></span>WorkerFileHasher<span class="signature">(files, algorithm<span class="signature-attributes">opt</span>, chunkSize<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h2>
+        <h2><span class="attribs"><span class="type-signature"></span></span>WorkerHasher<span class="signature">(strings<span class="signature-attributes">opt</span>, files<span class="signature-attributes">opt</span>, algorithm<span class="signature-attributes">opt</span>, chunkSize<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h2>
         
-            <div class="class-description"><p>WorkerFileHasher is the class of objects that coordinates hashing of
+            <div class="class-description"><p>WorkerHasher is the class of objects that coordinates hashing of
 files using <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API">WebWorker</a>
 processes.</p>
-<p>Each worker is an instance of <a href="FileHasherWorker.html"><code>FileHasherWorker</code></a></p></div>
+<p>Each worker is an instance of <a href="HasherWorker.html"><code>HasherWorker</code></a></p></div>
         
     
 </header>
@@ -48,7 +48,7 @@ processes.</p>
     
 
     
-    <h4 class="name" id="WorkerFileHasher"><span class="type-signature"></span>new WorkerFileHasher<span class="signature">(files, algorithm<span class="signature-attributes">opt</span>, chunkSize<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="WorkerHasher"><span class="type-signature"></span>new WorkerHasher<span class="signature">(strings<span class="signature-attributes">opt</span>, files<span class="signature-attributes">opt</span>, algorithm<span class="signature-attributes">opt</span>, chunkSize<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
     
 
     
@@ -56,8 +56,8 @@ processes.</p>
 
 
 <div class="description">
-    <p>Instantiates a <a href="WorkerFileHasher.html"><code>WorkerFileHasher</code></a>, creates a collection for <a href="FileHasherWorker.html"><code>FileHasherWorker</code></a> instances and calls <code>#createWorker</code> to create a
-<a href="FileHasherWorker.html"><code>FileHasherWorker</code></a> for each file in <code>files</code></p>
+    <p>Instantiates a <a href="WorkerHasher.html"><code>WorkerHasher</code></a>, creates a collection for <a href="HasherWorker.html"><code>HasherWorker</code></a> instances and calls <code>#createWorker</code> to create a
+<a href="HasherWorker.html"><code>HasherWorker</code></a> for each file in <code>files</code></p>
 </div>
 
 
@@ -97,6 +97,43 @@ processes.</p>
 
         <tr>
             
+                <td class="name"><code>strings</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>A collection of strings to be hashed</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
                 <td class="name"><code>files</code></td>
             
 
@@ -111,6 +148,8 @@ processes.</p>
 
             
                 <td class="attributes">
+                
+                    &lt;optional><br>
                 
 
                 
@@ -247,7 +286,7 @@ processes.</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="WorkerFileHasher.js.html">WorkerFileHasher.js</a>, <a href="WorkerFileHasher.js.html#line16">line 16</a>
+        <a href="WorkerHasher.js.html">WorkerHasher.js</a>, <a href="WorkerHasher.js.html#line16">line 16</a>
     </li></ul></dd>
     
 
@@ -301,7 +340,7 @@ processes.</p>
 
 
 <div class="description">
-    <p>To be used by <a href="FileHasherWorker.html"><code>FileHasherWorker</code></a>:</p>
+    <p>To be used by <a href="HasherWorker.html"><code>HasherWorker</code></a>:</p>
 <p>Script URLs provided to the WebWorker to import, in this case, CryptoJS
 scripts for the core library, WordArray, and SHA1.</p>
 </div>
@@ -351,7 +390,7 @@ scripts for the core library, WordArray, and SHA1.</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="WorkerFileHasher.js.html">WorkerFileHasher.js</a>, <a href="WorkerFileHasher.js.html#line145">line 145</a>
+        <a href="WorkerHasher.js.html">WorkerHasher.js</a>, <a href="WorkerHasher.js.html#line162">line 162</a>
     </li></ul></dd>
     
 
@@ -387,7 +426,7 @@ scripts for the core library, WordArray, and SHA1.</p>
 
 
 <div class="description">
-    <p>To be used by <a href="FileHasherWorker.html"><code>FileHasherWorker</code></a>:</p>
+    <p>To be used by <a href="HasherWorker.html"><code>HasherWorker</code></a>:</p>
 <p>Function which converts an ArrayBuffer to a CryptoJS WordArray.</p>
 </div>
 
@@ -481,7 +520,7 @@ scripts for the core library, WordArray, and SHA1.</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="WorkerFileHasher.js.html">WorkerFileHasher.js</a>, <a href="WorkerFileHasher.js.html#line183">line 183</a>
+        <a href="WorkerHasher.js.html">WorkerHasher.js</a>, <a href="WorkerHasher.js.html#line200">line 200</a>
     </li></ul></dd>
     
 
@@ -545,8 +584,8 @@ scripts for the core library, WordArray, and SHA1.</p>
 
 
 <div class="description">
-    <p>To be used by <a href="FileHasherWorker.html"><code>FileHasherWorker</code></a>:</p>
-<p>Bind a function to be used by <a href="FileHasherWorker.html"><code>FileHasherWorker</code></a> when it receives
+    <p>To be used by <a href="HasherWorker.html"><code>HasherWorker</code></a>:</p>
+<p>Bind a function to be used by <a href="HasherWorker.html"><code>HasherWorker</code></a> when it receives
 messages from the worker process.</p>
 </div>
 
@@ -589,7 +628,7 @@ messages from the worker process.</p>
             <td class="type">
             
                 
-<span class="param-type"><a href="FileHasherWorker.html">FileHasherWorker</a></span>
+<span class="param-type"><a href="HasherWorker.html">HasherWorker</a></span>
 
 
             
@@ -599,7 +638,7 @@ messages from the worker process.</p>
 
             
 
-            <td class="description last"><p>The <a href="FileHasherWorker.html"><code>FileHasherWorker</code></a> to handle
+            <td class="description last"><p>The <a href="HasherWorker.html"><code>HasherWorker</code></a> to handle
                                        messages for.</p></td>
         </tr>
 
@@ -641,7 +680,7 @@ messages from the worker process.</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="WorkerFileHasher.js.html">WorkerFileHasher.js</a>, <a href="WorkerFileHasher.js.html#line65">line 65</a>
+        <a href="WorkerHasher.js.html">WorkerHasher.js</a>, <a href="WorkerHasher.js.html#line73">line 73</a>
     </li></ul></dd>
     
 
@@ -697,7 +736,7 @@ messages from the worker process.</p>
     
 
     
-    <h4 class="name" id="createWorker"><span class="type-signature"></span>createWorker<span class="signature">(file)</span><span class="type-signature"> &rarr; {<a href="FileHasherWorker.html">FileHasherWorker</a>}</span></h4>
+    <h4 class="name" id="createWorker"><span class="type-signature"></span>createWorker<span class="signature">(fileOrString)</span><span class="type-signature"> &rarr; {<a href="HasherWorker.html">HasherWorker</a>}</span></h4>
     
 
     
@@ -705,7 +744,7 @@ messages from the worker process.</p>
 
 
 <div class="description">
-    <p>Create a new <a href="FileHasherWorker.html"><code>FileHasherWorker</code></a> for the given file.</p>
+    <p>Create a new <a href="HasherWorker.html"><code>HasherWorker</code></a> for the given file or string.</p>
 </div>
 
 
@@ -741,13 +780,13 @@ messages from the worker process.</p>
 
         <tr>
             
-                <td class="name"><code>file</code></td>
+                <td class="name"><code>fileOrString</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">File</span>
+<span class="param-type">Any</span>
 
 
             
@@ -757,7 +796,7 @@ messages from the worker process.</p>
 
             
 
-            <td class="description last"><p>A file to be hashed.</p></td>
+            <td class="description last"><p>A file or string to be hashed.</p></td>
         </tr>
 
     
@@ -798,7 +837,7 @@ messages from the worker process.</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="WorkerFileHasher.js.html">WorkerFileHasher.js</a>, <a href="WorkerFileHasher.js.html#line46">line 46</a>
+        <a href="WorkerHasher.js.html">WorkerHasher.js</a>, <a href="WorkerHasher.js.html#line56">line 56</a>
     </li></ul></dd>
     
 
@@ -832,7 +871,7 @@ messages from the worker process.</p>
     </dt>
     <dd>
         
-<span class="param-type"><a href="FileHasherWorker.html">FileHasherWorker</a></span>
+<span class="param-type"><a href="HasherWorker.html">HasherWorker</a></span>
 
 
     </dd>
@@ -858,7 +897,7 @@ messages from the worker process.</p>
 
 
 <div class="description">
-    <p>To be used by <a href="FileHasherWorker.html"><code>FileHasherWorker</code></a>:</p>
+    <p>To be used by <a href="HasherWorker.html"><code>HasherWorker</code></a>:</p>
 <p>Function which creates an object to implement create, update, and finalize
 methods for a particular CryptoJS algorithm.</p>
 </div>
@@ -904,7 +943,7 @@ methods for a particular CryptoJS algorithm.</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="WorkerFileHasher.js.html">WorkerFileHasher.js</a>, <a href="WorkerFileHasher.js.html#line162">line 162</a>
+        <a href="WorkerHasher.js.html">WorkerHasher.js</a>, <a href="WorkerHasher.js.html#line179">line 179</a>
     </li></ul></dd>
     
 
@@ -968,11 +1007,11 @@ methods for a particular CryptoJS algorithm.</p>
 
 
 <div class="description">
-    <p>To be used by <a href="FileHasherWorker.html"><code>FileHasherWorker</code></a>:</p>
-<p>Function provided to <a href="FileHasherWorker.html"><code>FileHasherWorker</code></a>'s internal WebWorkers to handle
-messages from the <a href="FileHasherWorker.html"><code>FileHasherWorker</code></a> object.</p>
+    <p>To be used by <a href="HasherWorker.html"><code>HasherWorker</code></a>:</p>
+<p>Function provided to <a href="HasherWorker.html"><code>HasherWorker</code></a>'s internal WebWorkers to handle
+messages from the <a href="HasherWorker.html"><code>HasherWorker</code></a> object.</p>
 <p>Upon <code>create</code> message, creates a new <code>CryptoJS</code> algorithm of the type
-specified when the <a href="FileHasherWorker.html"><code>FileHasherWorker</code></a> was instantiated.  Sends an
+specified when the <a href="HasherWorker.html"><code>HasherWorker</code></a> was instantiated.  Sends an
 acknowledgement message back to the caller.</p>
 <p>Upon <code>update</code> message, uses the algorithm's update method to update the hash
 using the data in the message.  Sends an acknowledgement message back to the
@@ -1070,7 +1109,7 @@ caller.</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="WorkerFileHasher.js.html">WorkerFileHasher.js</a>, <a href="WorkerFileHasher.js.html#line102">line 102</a>
+        <a href="WorkerHasher.js.html">WorkerHasher.js</a>, <a href="WorkerHasher.js.html#line110">line 110</a>
     </li></ul></dd>
     
 
@@ -1114,13 +1153,13 @@ caller.</p>
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="ConstructedWorker.html">ConstructedWorker</a></li><li><a href="FileHasherWorker.html">FileHasherWorker</a></li><li><a href="WorkerFileHasher.html">WorkerFileHasher</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="ColorMatch.html">ColorMatch</a></li><li><a href="ConstructedWorker.html">ConstructedWorker</a></li><li><a href="HasherWorker.html">HasherWorker</a></li><li><a href="WorkerHasher.html">WorkerHasher</a></li></ul><h3>Global</h3><ul><li><a href="global.html#addColor">addColor</a></li><li><a href="global.html#addColors">addColors</a></li><li><a href="global.html#addNewColor">addNewColor</a></li><li><a href="global.html#cleanColor">cleanColor</a></li><li><a href="global.html#colormatch">colormatch</a></li><li><a href="global.html#createGetPartDiff">createGetPartDiff</a></li><li><a href="global.html#createInvalidMatch">createInvalidMatch</a></li><li><a href="global.html#dumpShadesAndNames">dumpShadesAndNames</a></li><li><a href="global.html#getColorDiff">getColorDiff</a></li><li><a href="global.html#hsl">hsl</a></li><li><a href="global.html#init">init</a></li><li><a href="global.html#match">match</a></li><li><a href="global.html#matchShade">matchShade</a></li><li><a href="global.html#rgb">rgb</a></li><li><a href="global.html#shadergb">shadergb</a></li><li><a href="global.html#sort">sort</a></li><li><a href="global.html#textColor">textColor</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Mon Oct 29 2018 12:57:57 GMT-0400 (Eastern Daylight Time)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Thu Nov 08 2018 22:24:12 GMT-0500 (Eastern Standard Time)
 </footer>
 
 <script> prettyPrint(); </script>

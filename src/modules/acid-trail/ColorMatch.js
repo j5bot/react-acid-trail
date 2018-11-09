@@ -27,7 +27,7 @@ export class ColorMatch {
 
     /**
      * The RGB hex value of the closest named color's shade
-     * @type {[type]}
+     * @type {String}
      */
     this.shade = shadergb(named[2]);
 

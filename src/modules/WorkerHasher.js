@@ -50,7 +50,7 @@ class WorkerHasher {
 
   /**
    * Create a new {@link HasherWorker} for the given file or string.
-   * @param  {File||String} fileOrString  A file or string to be hashed.
+   * @param  {Any} fileOrString  A file or string to be hashed.
    * @return {HasherWorker}
    */
   createWorker (fileOrString) {
