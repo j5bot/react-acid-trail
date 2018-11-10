@@ -1,5 +1,6 @@
 const CHOOSE_FILES = Symbol('CHOOSE_FILES');
 const ENTER_STRING = Symbol('ENTER_STRING');
+const ENTER_TITLE = Symbol('ENTER_TITLE');
 const CLEAR = Symbol('CLEAR');
 const START_HASH = Symbol('START_HASH');
 const FINISH_HASH = Symbol('FINISH_HASH');
@@ -7,6 +8,7 @@ const FINISH_HASH = Symbol('FINISH_HASH');
 export const types = {
   CHOOSE_FILES,
   ENTER_STRING,
+  ENTER_TITLE,
   CLEAR,
   START_HASH,
   FINISH_HASH
@@ -17,6 +19,15 @@ export const createChooseFilesAction = (files) => {
     type:     CHOOSE_FILES,
     payload:  {
       files
+    }
+  };
+};
+
+export const createEnterTitleAction = (title) => {
+  return {
+    type:     ENTER_TITLE,
+    payload: {
+      title
     }
   };
 };
@@ -58,6 +69,7 @@ export const createFinishHashAction = (payload) => {
 export const actions = {
   createChooseFilesAction,
   createEnterStringAction,
+  createEnterTitleAction,
   createClearAction,
   createStartHashAction,
   createFinishHashAction,

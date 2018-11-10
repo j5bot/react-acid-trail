@@ -9,6 +9,9 @@ export {
   EnterStringContainer
 } from './EnterStringContainer/EnterStringContainer';
 export {
+  EnterTitleContainer
+} from './EnterTitleContainer/EnterTitleContainer';
+export {
   FileChooserContainer
 } from './FileChooserContainer/FileChooserContainer';
 export {

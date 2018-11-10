@@ -2,6 +2,17 @@
   "name": "react-acid-trail",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://demos.jonathancook.site/react-acid-trail",
+  "docs": {
+    "repository": {
+      "type": "git",
+      "url": "git+git://git@github.com:j5bot/docs-react-acid-trail.git"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+git://git@github.com:j5bot/react-acid-trail.git"
+  },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.7",
     "@fortawesome/free-solid-svg-icons": "^5.4.2",
@@ -10,7 +21,9 @@
     "crypto-js": "^3.1.9-1",
     "d3": "^5.7.0",
     "flux-standard-action": "^2.0.3",
+    "html2canvas": "^1.0.0-alpha.12",
     "jquery": "^3.3.1",
+    "lodash": "^4.17.11",
     "popper.js": "^1.14.3",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
@@ -37,12 +50,16 @@
     "test-debug": "react-scripts --inspect-brk=0.0.0.0:9229 test --env=jsdom --runInBand -i",
     "test-watch": "react-scripts test --watch --verbose",
     "eject": "react-scripts eject",
-    "doc": "jsdoc -r src/ -c .jsdoc.config.json -d docs",
+    "docs": "jsdoc -R DOCS-README.md -r src/ -c .jsdoc.config.json -d docs",
     "styleguidist": "styleguidist server",
     "styleguidist:build": "styleguidist build",
     "coverage:view": "open coverage/lcov-report/index.html",
     "lint": "eslint **/*.js",
-    "release": "release-it"
+    "release": "release-it",
+    "predeploy-demo": "yarn build",
+    "deploy-demo": "gh-pages --dist build --remote demo",
+    "predeploy-docs": "yarn docs",
+    "deploy-docs": "gh-pages --dist docs --remote docs"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -58,6 +75,7 @@
     "eslint-plugin-j5bot": "^0.0.2",
     "eslint-plugin-jest": "^21.25.1",
     "eslint-plugin-react": "^7.11.1",
+    "gh-pages": "^2.0.1",
     "jest-junit": "^5.2.0",
     "jsdoc": "^3.5.5",
     "jsdoctor": "^1.0.0",

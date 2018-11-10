@@ -64,7 +64,8 @@ export const AcidTrailCharts = (props) => {
         </div>
         { children }
       </div>
-      <div className="acid-trail-charts">
+      { hashes && hashes.length > 0 &&
+      (<div className="acid-trail-charts">
         {
           hashes.map(
             (hash, index) => (
@@ -74,6 +75,9 @@ export const AcidTrailCharts = (props) => {
                 id={ `acid-trail-${ hash.job }-${ index }-${ hash.hashed }` }>
                 <div className="trail-reference">
                   <FontAwesomeIcon icon={ hash.file ? 'file' : 'font' } />
+                  { hash.title && (
+                    <span>{ hash.title }:</span>)
+                  }
                   <span>{ hash.name }</span>
                 </div>
                 <AcidTrailChart
@@ -84,7 +88,7 @@ export const AcidTrailCharts = (props) => {
             )
           )
         }
-      </div>
+      </div>) }
     </div>
   );
 };

@@ -28,6 +28,7 @@ import {
   AcidTrailChartsContainer,
   ClearButtonContainer,
   EnterStringContainer,
+  EnterTitleContainer,
   FileChooserContainer,
   HashButtonContainer,
   IpsumSaltContainer
@@ -65,9 +66,6 @@ class App extends Component {
           <NavbarBrand href="/">ACID Trail</NavbarBrand>
           <Nav className="ml-auto" navbar>
             <NavItem>
-              <NavLink href="/components/">Components</NavLink>
-            </NavItem>
-            <NavItem>
               <NavLink href="https://github.com/j5bot/react-acid-trail">Github</NavLink>
             </NavItem>
           </Nav>
@@ -86,7 +84,10 @@ class App extends Component {
                   </div>
                 </AcidTrailChartsContainer>
                 <div className="data-container">
-                  <EnterStringContainer/>
+                  <div className="title-text-container">
+                    <EnterTitleContainer/>
+                    <EnterStringContainer/>
+                  </div>
                   <FileChooserContainer/>
                 </div>
                 <IpsumSaltContainer />

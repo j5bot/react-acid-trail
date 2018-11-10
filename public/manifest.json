@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "React ACID Trail",
+  "name": "ES6 implementation of ACID trail with React front end",
   "start_url": ".",
   "display": "standalone",
   "theme_color": "#000000",

@@ -4,6 +4,7 @@ const defaultState = {
   job:     0,
   files:   [],
   string:  '',
+  title:   '',
   strings: [],
   hashes:  []
 };
@@ -11,6 +12,7 @@ const defaultState = {
 const {
   CHOOSE_FILES,
   ENTER_STRING,
+  ENTER_TITLE,
   CLEAR,
   START_HASH,
   FINISH_HASH
@@ -20,6 +22,7 @@ export const hasher = (state = defaultState, action) => {
   let newState = state,
       name;
 
+  const { title } = newState;
   const { type, payload } = action;
 
   switch (type) {
@@ -45,12 +48,22 @@ export const hasher = (state = defaultState, action) => {
 
     break;
 
+  case ENTER_TITLE:
+
+    newState = {
+      ...newState,
+      title:  payload.title
+    };
+
+    break;
+
   case CLEAR:
 
     newState = {
       ...newState,
       files:   defaultState.files,
       hashes:  defaultState.hashes,
+      title:   defaultState.title,
       string:  defaultState.string,
       strings: defaultState.strings
     };
@@ -78,6 +91,7 @@ export const hasher = (state = defaultState, action) => {
       hashes: [
         ...newState.hashes,
         {
+          title,
           name,
           ...payload,
           job: newState.job
