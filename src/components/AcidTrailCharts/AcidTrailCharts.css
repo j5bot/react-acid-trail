@@ -12,14 +12,12 @@
   align-items: center;
 }
 .showChoice > p {
-  text-transform: uppercase;
-  font-weight: bold;
-  color: rgba(0,0,0,0.5);
-}
-.showChoice > p {
   flex-basis: 15%;
   margin: 0 0 8px;
   line-height: 32px;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: rgba(0,0,0,0.5);
 }
 .showChoice > label {
   flex-basis: 15%;

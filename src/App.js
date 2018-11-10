@@ -29,10 +29,7 @@ import {
   ClearButtonContainer,
   EnterStringContainer,
   FileChooserContainer,
-  HashButtonContainer
-} from './containers';
-
-import {
+  HashButtonContainer,
   IpsumSaltContainer
 } from './containers';
 
@@ -71,7 +68,7 @@ class App extends Component {
               <NavLink href="/components/">Components</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="https://github.com/reactstrap/reactstrap">Github</NavLink>
+              <NavLink href="https://github.com/j5bot/react-acid-trail">Github</NavLink>
             </NavItem>
           </Nav>
         </Navbar>
