@@ -41,3 +41,11 @@
 
 # react-acid-trail
 ES6 Implementation of ACID trail with a React front-end.
+
+# Demo
+
+Check out the [live demo](https://go.jonathancook.site/react-acid-trail-demo).
+
+# Docs
+
+View the [JSDoc documentation](https://go.jonathancook.site/docs-react-acid-trail).
