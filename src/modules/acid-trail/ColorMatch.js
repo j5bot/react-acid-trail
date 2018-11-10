@@ -1,3 +1,9 @@
+/**
+ * Exports ColorMatch class, instances of which represent color matches found
+ * using {@link module:NTC}.
+ *
+ * @module ColorMatch
+ */
 import { shadergb } from './NTC';
 
 /**

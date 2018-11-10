@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Class: ConstructedWorker</title>
+    <title>JSDoc: Module: loader</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Class: ConstructedWorker</h1>
+    <h1 class="page-title">Module: loader</h1>
 
     
 
@@ -28,11 +28,8 @@
 
 <header>
     
-        <h2><span class="attribs"><span class="type-signature"></span></span>ConstructedWorker</h2>
         
-            <div class="class-description"><p>Static class used to create
-<a href="https://developer.mozilla.org/en-US/docs/Web/API/Worker">Worker</a>
-processes constructed from dynamic source(s).</p></div>
+            
         
     
 </header>
@@ -41,6 +38,13 @@ processes constructed from dynamic source(s).</p></div>
     <div class="container-overview">
     
         
+            <div class="description"><p>ipsum-salt/loader module provides methods for loading single-file ipsum
+generator modules and exposing them via the window object, allowing for lazy
+loading of various ipsum generators.</p></div>
+        
+
+        
+            
 
 
 
@@ -85,7 +89,7 @@ processes constructed from dynamic source(s).</p></div>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="ConstructedWorker.js.html">ConstructedWorker.js</a>, <a href="ConstructedWorker.js.html#line8">line 8</a>
+        <a href="ipsum-salt_loader.js.html">ipsum-salt/loader.js</a>, <a href="ipsum-salt_loader.js.html#line1">line 1</a>
     </li></ul></dd>
     
 
@@ -113,6 +117,7 @@ processes constructed from dynamic source(s).</p></div>
 
 
 
+        
     
     </div>
 
@@ -129,6 +134,74 @@ processes constructed from dynamic source(s).</p></div>
     
 
     
+        <h3 class="subsection-title">Members</h3>
+
+        
+            
+<h4 class="name" id=".ipsumSalt"><span class="type-signature">(static, constant) </span>ipsumSalt<span class="type-signature"></span></h4>
+
+
+
+
+<div class="description">
+    <p>Loader method which provides for loading single-file module scripts from
+the given URL and exposing module members on the <code>window</code> object.</p>
+<p>Optionally call an <code>onLoad</code> callback when the module script is loaded.</p>
+</div>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="ipsum-salt_loader.js.html">ipsum-salt/loader.js</a>, <a href="ipsum-salt_loader.js.html#line46">line 46</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+    
 
     
         <h3 class="subsection-title">Methods</h3>
@@ -139,7 +212,7 @@ processes constructed from dynamic source(s).</p></div>
     
 
     
-    <h4 class="name" id=".blobber"><span class="type-signature">(static) </span>blobber<span class="signature">(data, type)</span><span class="type-signature"> &rarr; {Blob}</span></h4>
+    <h4 class="name" id="~appendExposure"><span class="type-signature">(inner) </span>appendExposure<span class="signature">(expose, exposeAs)</span><span class="type-signature"> &rarr; {String}</span></h4>
     
 
     
@@ -147,9 +220,7 @@ processes constructed from dynamic source(s).</p></div>
 
 
 <div class="description">
-    <p>Create a <a href="https://developer.mozilla.org/en-US/docs/Web/API/Blob">Blob</a>
-with which to initialize the constructed
-<a href="https://developer.mozilla.org/en-US/docs/Web/API/Worker">Worker</a>.</p>
+    <p>Create script line(s) to expose module members on the <code>window</code> object.</p>
 </div>
 
 
@@ -185,7 +256,7 @@ with which to initialize the constructed
 
         <tr>
             
-                <td class="name"><code>data</code></td>
+                <td class="name"><code>expose</code></td>
             
 
             <td class="type">
@@ -201,21 +272,20 @@ with which to initialize the constructed
 
             
 
-            <td class="description last"><p>The source string used to instantiate the
-<a href="https://developer.mozilla.org/en-US/docs/Web/API/Worker">Worker</a></p></td>
+            <td class="description last"><p>The module member to expose</p></td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>type</code></td>
+                <td class="name"><code>exposeAs</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">Object</span>
+<span class="param-type">String</span>
 
 
             
@@ -225,7 +295,7 @@ with which to initialize the constructed
 
             
 
-            <td class="description last"><p>An object providing the MIME type for the source string</p></td>
+            <td class="description last"><p>What property to set on the <code>window</code> object</p></td>
         </tr>
 
     
@@ -266,7 +336,7 @@ with which to initialize the constructed
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="ConstructedWorker.js.html">ConstructedWorker.js</a>, <a href="ConstructedWorker.js.html#line23">line 23</a>
+        <a href="ipsum-salt_loader.js.html">ipsum-salt/loader.js</a>, <a href="ipsum-salt_loader.js.html#line28">line 28</a>
     </li></ul></dd>
     
 
@@ -293,10 +363,7 @@ with which to initialize the constructed
 
         
 <div class="param-desc">
-    <p>a
-<a href="https://developer.mozilla.org/en-US/docs/Web/API/Blob">Blob</a> usable to
-                      create a new
-<a href="https://developer.mozilla.org/en-US/docs/Web/API/Worker">Worker</a>.</p>
+    <p>Script source for exposing the member</p>
 </div>
 
 
@@ -307,7 +374,7 @@ with which to initialize the constructed
     </dt>
     <dd>
         
-<span class="param-type">Blob</span>
+<span class="param-type">String</span>
 
 
     </dd>
@@ -325,7 +392,7 @@ with which to initialize the constructed
     
 
     
-    <h4 class="name" id=".createConstructedWorker"><span class="type-signature">(static) </span>createConstructedWorker<span class="signature">(imports, srcs, onMessage)</span><span class="type-signature"> &rarr; {Worker}</span></h4>
+    <h4 class="name" id="~fetchScript"><span class="type-signature">(inner) </span>fetchScript<span class="signature">(url)</span><span class="type-signature"> &rarr; {Promise}</span></h4>
     
 
     
@@ -333,9 +400,7 @@ with which to initialize the constructed
 
 
 <div class="description">
-    <p>Create a new
-<a href="https://developer.mozilla.org/en-US/docs/Web/API/Worker">Worker</a>
-constructed from the provided sources.</p>
+    <p>Fetch a script from the URL using fetch API and returning a promise.</p>
 </div>
 
 
@@ -371,13 +436,13 @@ constructed from the provided sources.</p>
 
         <tr>
             
-                <td class="name"><code>imports</code></td>
+                <td class="name"><code>url</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">Array</span>
+<span class="param-type">String</span>
 
 
             
@@ -387,59 +452,7 @@ constructed from the provided sources.</p>
 
             
 
-            <td class="description last"><p>An array of script URLs which will be imported
-                             by the
-<a href="https://developer.mozilla.org/en-US/docs/Web/API/Worker">Worker</a></p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>srcs</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Array</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Source, functions, etc. to be provided to the
-<a href="https://developer.mozilla.org/en-US/docs/Web/API/Worker">Worker</a>.
-                             Each item in the array will be provided using
-                             it's <code>toString</code> method.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>onMessage</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">function</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Function which the worker will use to handle
-                             incoming messages.</p></td>
+            <td class="description last"><p>URL of the script to fetch</p></td>
         </tr>
 
     
@@ -480,7 +493,7 @@ constructed from the provided sources.</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="ConstructedWorker.js.html">ConstructedWorker.js</a>, <a href="ConstructedWorker.js.html#line57">line 57</a>
+        <a href="ipsum-salt_loader.js.html">ipsum-salt/loader.js</a>, <a href="ipsum-salt_loader.js.html#line15">line 15</a>
     </li></ul></dd>
     
 
@@ -507,7 +520,8 @@ constructed from the provided sources.</p>
 
         
 <div class="param-desc">
-    <p><a href="https://developer.mozilla.org/en-US/docs/Web/API/Worker">Worker</a>.</p>
+    <p>A Promise which will resolve when the fetch operation
+                     completes.</p>
 </div>
 
 
@@ -518,7 +532,7 @@ constructed from the provided sources.</p>
     </dt>
     <dd>
         
-<span class="param-type">Worker</span>
+<span class="param-type">Promise</span>
 
 
     </dd>
@@ -552,7 +566,7 @@ constructed from the provided sources.</p>
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Fri Nov 09 2018 15:03:15 GMT-0500 (Eastern Standard Time)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Fri Nov 09 2018 15:03:19 GMT-0500 (Eastern Standard Time)
 </footer>
 
 <script> prettyPrint(); </script>

@@ -1,3 +1,12 @@
+/**
+ * NTC (name that color) module implements Chirag Mehta's NTC code and Jonathan
+ * Cook's extensions to that code in ES6.
+ *
+ * In a nutshell, NTC takes an RGB hex color value and matches it with the
+ * closest named color in it's collection of named colors.
+ *
+ * @module NTC
+ */
 /*
 Original NTC (name that color) code copyright (c) 2013 Chirag Mehta
 Licensed under the MIT License by special permission.
