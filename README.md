@@ -49,3 +49,7 @@ Check out the [live demo](https://go.jonathancook.site/react-acid-trail-demo).
 ## Docs
 
 View the [JSDoc documentation](https://go.jonathancook.site/docs-react-acid-trail).
+
+## Original Implementation
+
+The original implementation repository is available [here](https://go.jonathancook.site/acid-trail-repo), along with the original [demo](https://go.jonathancook.site/acid-trail-demo).
