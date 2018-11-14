@@ -1,35 +1,10 @@
-const CHANGE_SHOWBARS = Symbol('CHANGE_SHOWBARS');
-const CHANGE_SHOWSHAPE = Symbol('CHANGE_SHOWSHAPE');
+import { createActions } from '../modules/actions';
 
-export const types = {
-  CHANGE_SHOWBARS,
-  CHANGE_SHOWSHAPE
-};
+let created = createActions([
+  'changeShowBars',
+  'changeShowShape'
+]);
 
-export const createChangeShowBarsAction = (bar, checked) => {
-  return {
-    type:     CHANGE_SHOWBARS,
-    payload:  {
-      [bar]: checked
-    }
-  };
-};
+export const { actions, types, dispatchers } = created;
 
-export const createChangeShowShapeAction = (shape) => {
-  return {
-    type:     CHANGE_SHOWSHAPE,
-    payload:  {
-      shape
-    }
-  };
-};
-
-export const actions = {
-  createChangeShowBarsAction,
-  createChangeShowShapeAction
-};
-
-export default {
-  ...types,
-  ...actions
-};
+export default created.default;

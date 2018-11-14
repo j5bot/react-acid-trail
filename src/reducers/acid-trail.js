@@ -1,4 +1,4 @@
-import { types } from '../actions';
+import actions from '../actions';
 
 const defaultState = {
   showShape: 'notched',
@@ -6,9 +6,9 @@ const defaultState = {
 };
 
 const {
-  CHANGE_SHOWBARS,
-  CHANGE_SHOWSHAPE
-} = types;
+  CHANGE_SHOW_BARS,
+  CHANGE_SHOW_SHAPE
+} = actions;
 
 export const acidTrail = (state = defaultState, action) => {
   let newState = state;
@@ -17,7 +17,7 @@ export const acidTrail = (state = defaultState, action) => {
 
   switch (type) {
 
-  case CHANGE_SHOWBARS:
+  case CHANGE_SHOW_BARS:
 
     newState = {
       ...newState,
@@ -29,7 +29,7 @@ export const acidTrail = (state = defaultState, action) => {
 
     break;
 
-  case CHANGE_SHOWSHAPE:
+  case CHANGE_SHOW_SHAPE:
 
     newState = {
       ...newState,

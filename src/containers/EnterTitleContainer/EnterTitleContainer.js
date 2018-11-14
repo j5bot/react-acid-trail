@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { EnterTitle } from '../../components';
 
-import { actions } from '../../actions';
+import actions from '../../actions';
 
 const {
   createEnterTitleAction
@@ -14,9 +14,9 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch, ownProps) => ({
   enter:      (event) => {
     return dispatch(
-      createEnterTitleAction(
-        event.target.value
-      )
+      createEnterTitleAction({
+        title: event.target.value
+      })
     );
   }
 });

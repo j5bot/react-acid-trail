@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { AcidTrailCharts } from '../../components';
 
-import { actions } from '../../actions';
+import actions from '../../actions';
 
 const {
   createChangeShowBarsAction,
@@ -15,15 +15,19 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
   changeShowBars: (event) => {
-    dispatch(createChangeShowBarsAction(
-      event.target.value,
-      event.target.checked
-    ));
+    const bar = event.target.value;
+    const checked = event.target.checked;
+
+    dispatch(createChangeShowBarsAction({
+      [bar]: checked
+    }));
   },
   changeShowShape: (event) => {
-    dispatch(createChangeShowShapeAction(
-      event.target.checked ? event.target.value : false
-    ));
+    const shape = event.target.checked ? event.target.value : false;
+
+    dispatch(createChangeShowShapeAction({
+      shape
+    }));
   }
 });
 

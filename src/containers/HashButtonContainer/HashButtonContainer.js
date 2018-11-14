@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { HashButton } from '../../components';
 
-import { actions } from '../../actions';
+import actions from '../../actions';
 
 const {
   createStartHashAction
@@ -13,7 +13,9 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
   hash: (event) => {
-    return dispatch(createStartHashAction());
+    return dispatch(createStartHashAction({
+      start: true
+    }));
   }
 });
 

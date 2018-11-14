@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { FileChooser } from '../../components';
 
-import { actions } from '../../actions';
+import actions from '../../actions';
 
 const {
   createChooseFilesAction,
@@ -38,16 +38,16 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
   },
   choose:    (event) => {
     return dispatch(
-      createChooseFilesAction(
-        getFilesFromEvent(event)
-      )
+      createChooseFilesAction({
+        files: getFilesFromEvent(event)
+      })
     );
   },
   enter:      (event) => {
     return dispatch(
-      createEnterStringAction(
-        event.target.value
-      )
+      createEnterStringAction({
+        string: event.target.value
+      })
     );
   }
 });

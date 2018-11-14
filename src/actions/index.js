@@ -1,23 +1,10 @@
-import { actions as baseActions } from './base';
-import { actions as hasherActions } from './hasher';
-import { actions as acidTrailActions } from './acid-trail';
-import { types as baseActionTypes } from './base';
-import { types as hasherActionTypes } from './hasher';
-import { types as acidTrailActionTypes } from './acid-trail';
-
-export const types = {
-  ...baseActionTypes,
-  ...hasherActionTypes,
-  ...acidTrailActionTypes
-};
-
-export const actions = {
-  ...baseActions,
-  ...hasherActions,
-  ...acidTrailActions
-};
+import hasherActions from './hasher';
+import acidTrailActions from './acid-trail';
+// import statesActions from './states';
 
 export default {
-  ...types,
-  ...actions
+  ...hasherActions,
+  ...acidTrailActions
+  // ,
+  // ...statesActions
 };

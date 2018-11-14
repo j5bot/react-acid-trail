@@ -1,4 +1,13 @@
-import { types } from '../actions';
+import actions from '../actions';
+
+const {
+  CHOOSE_FILES,
+  ENTER_STRING,
+  ENTER_TITLE,
+  CLEAR,
+  START_HASH,
+  FINISH_HASH
+} = actions;
 
 const defaultState = {
   job:     0,
@@ -8,15 +17,6 @@ const defaultState = {
   strings: [],
   hashes:  []
 };
-
-const {
-  CHOOSE_FILES,
-  ENTER_STRING,
-  ENTER_TITLE,
-  CLEAR,
-  START_HASH,
-  FINISH_HASH
-} = types;
 
 export const hasher = (state = defaultState, action) => {
   let newState = state,

@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { IpsumSalt } from '../../components';
 
-import { actions } from '../../actions';
+import actions from '../../actions';
 
 const {
   createEnterStringAction

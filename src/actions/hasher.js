@@ -1,81 +1,13 @@
-const CHOOSE_FILES = Symbol('CHOOSE_FILES');
-const ENTER_STRING = Symbol('ENTER_STRING');
-const ENTER_TITLE = Symbol('ENTER_TITLE');
-const CLEAR = Symbol('CLEAR');
-const START_HASH = Symbol('START_HASH');
-const FINISH_HASH = Symbol('FINISH_HASH');
+import { createActions } from '../modules/actions';
 
-export const types = {
-  CHOOSE_FILES,
-  ENTER_STRING,
-  ENTER_TITLE,
-  CLEAR,
-  START_HASH,
-  FINISH_HASH
-};
+let created = createActions([
+  'chooseFiles',
+  'enterTitle',
+  'enterString',
+  'clear',
+  'startHash',
+  'finishHash'
+]);
 
-export const createChooseFilesAction = (files) => {
-  return {
-    type:     CHOOSE_FILES,
-    payload:  {
-      files
-    }
-  };
-};
-
-export const createEnterTitleAction = (title) => {
-  return {
-    type:     ENTER_TITLE,
-    payload: {
-      title
-    }
-  };
-};
-
-export const createEnterStringAction = (string) => {
-  return {
-    type:     ENTER_STRING,
-    payload:  {
-      string
-    }
-  };
-};
-
-export const createClearAction = () => {
-  return {
-    type:     CLEAR,
-    payload: {
-      clear: true
-    }
-  };
-};
-
-export const createStartHashAction = () => {
-  return {
-    type:     START_HASH,
-    payload:  {
-      start: true
-    }
-  };
-};
-
-export const createFinishHashAction = (payload) => {
-  return {
-    type:     FINISH_HASH,
-    payload
-  };
-};
-
-export const actions = {
-  createChooseFilesAction,
-  createEnterStringAction,
-  createEnterTitleAction,
-  createClearAction,
-  createStartHashAction,
-  createFinishHashAction,
-};
-
-export default {
-  ...types,
-  ...actions
-};
+export const { types, actions } = created;
+export default created.default;
