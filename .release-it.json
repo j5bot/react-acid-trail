@@ -1,0 +1,22 @@
+{
+  "verbose": true,
+  "src": {
+    "beforeStartCommand": "git stash save -u 'Preparing for release'",
+    "afterReleaseCommand": "git stash pop",
+    "commit": true,
+    "tag": true,
+    "tagName": "v%s"
+  },
+  "github": {
+    "release": true,
+    "assets": "reports/js-test-results.json"
+  },
+  "npm": {
+    "publish": false
+  },
+  "prompt": {
+    "src": {
+      "status": true
+    }
+  }
+}
