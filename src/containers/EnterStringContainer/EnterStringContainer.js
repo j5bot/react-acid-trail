@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { EnterString } from '../../components';
 
-import { actions } from '../../actions';
+import actions from '../../actions';
 
 const {
   createEnterStringAction
@@ -14,9 +14,9 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch, ownProps) => ({
   enter:      (event) => {
     return dispatch(
-      createEnterStringAction(
-        event.target.value
-      )
+      createEnterStringAction({
+        string: event.target.value
+      })
     );
   }
 });

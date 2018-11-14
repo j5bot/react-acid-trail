@@ -1,7 +1,6 @@
 export {
   AcidTrailChartsContainer
 } from './AcidTrailChartsContainer/AcidTrailChartsContainer';
-export { BaseContainer } from './BaseContainer/BaseContainer';
 export {
   ClearButtonContainer
 } from './ClearButtonContainer/ClearButtonContainer';

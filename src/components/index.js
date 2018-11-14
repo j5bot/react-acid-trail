@@ -1,10 +1,8 @@
-export { Base } from './Base/Base';
 export { ClearButton } from './ClearButton/ClearButton';
 export { EnterString } from './EnterString/EnterString';
 export { EnterTitle } from './EnterTitle/EnterTitle';
 export { FileChooser } from './FileChooser/FileChooser';
 export { HashButton } from './HashButton/HashButton';
-export { Hashes } from './Hashes/Hashes';
 export { IpsumSalt } from './IpsumSalt/IpsumSalt';
 export { AcidTrailChart } from './AcidTrailChart/AcidTrailChart';
 export { AcidTrailCharts } from './AcidTrailCharts/AcidTrailCharts';

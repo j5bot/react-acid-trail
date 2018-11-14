@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { ClearButton } from '../../components';
 
-import { actions } from '../../actions';
+import actions from '../../actions';
 
 const {
   createClearAction
@@ -13,7 +13,9 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
   clear: (event) => {
-    return dispatch(createClearAction());
+    return dispatch(createClearAction({
+      clear: true
+    }));
   }
 });
 
