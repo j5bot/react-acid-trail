@@ -17,8 +17,5 @@ export {
   HashButtonContainer
 } from './HashButtonContainer/HashButtonContainer';
 export {
-  HashesContainer
-} from './HashesContainer/HashesContainer';
-export {
   IpsumSaltContainer
 } from './IpsumSaltContainer/IpsumSaltContainer';
