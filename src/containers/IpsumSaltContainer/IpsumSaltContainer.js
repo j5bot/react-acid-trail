@@ -15,7 +15,7 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
   salt:     (string) => {
     return dispatch(
       createEnterStringAction(
-        string
+          { string }
       )
     );
   }

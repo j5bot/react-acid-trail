@@ -160,13 +160,13 @@ WorkerHasher.prototype.workerOnMessage = function workerOnMessage (event) {
  * @type {Array}
  */
 WorkerHasher.prototype.scripts = [
-  '/scripts/vendor/crypto-js/core.js',
-  '/scripts/vendor/crypto-js/x64-core.js',
-  '/scripts/vendor/crypto-js/lib-typedarrays.js',
-  '/scripts/vendor/crypto-js/sha1.js'
+  'scripts/vendor/crypto-js/core.js',
+  'scripts/vendor/crypto-js/x64-core.js',
+  'scripts/vendor/crypto-js/lib-typedarrays.js',
+  'scripts/vendor/crypto-js/sha1.js'
 ]
   .map(
-    script => `${window.location.protocol}//${window.location.host}${script}`
+    script => `${window.location.toString()}${script}`
   );
 
 /**
