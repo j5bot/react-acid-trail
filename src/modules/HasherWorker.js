@@ -167,7 +167,7 @@ class HasherWorker {
       [
         `this.algorithm = '${hasher.algorithm}'`,
         `this.hash = ${hasher.hash}`,
-        `arrayBufferToWordArray = ${hasher.arrayBufferToWordArray}`,
+        `var arrayBufferToWordArray = ${hasher.arrayBufferToWordArray}`,
       ],
       hasher.workerOnMessage
     );
