@@ -137,19 +137,6 @@ class AcidTrailChartComponent extends Component {
     })
       .attr('fill', (datum) => range(datum));
 
-    // this.rect(
-    //   {
-    //     group:
-    //       group
-    //         .selectAll('.rects')
-    //         .data(data)
-    //         .enter(),
-    //     width:  width,
-    //     height,
-    //     margin: margin
-    //   })
-    //   .attr('fill', (datum) => range(datum));
-
     this.text({
       group:
         group
@@ -161,7 +148,6 @@ class AcidTrailChartComponent extends Component {
       margin
     })
       .text((datum) => `${namesRange(datum)}`);
-      // .attr('lengthAdjust', 'spacingAndGlyphs');
 
   }
 
