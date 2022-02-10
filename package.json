@@ -79,7 +79,7 @@
     "jest-junit": "^5.2.0",
     "jsdoc": "^3.5.5",
     "jsdoctor": "^1.0.0",
-    "node-sass": "^4.9.4",
+    "node-sass": "^7.0.0",
     "react-styleguidist": "^8.0.2"
   }
 }
